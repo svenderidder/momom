@@ -20,7 +20,7 @@ namespace momom {
 
     class HeroStats {
     private:
-        std::unique_ptr<char> data;
+        std::unique_ptr<char[]> data;
         const static ptrdiff_t StatusOffset = 0;
         const static ptrdiff_t AbilitiesOffset = 2;
         const static size_t HeroStatsBlockSize = 12;
