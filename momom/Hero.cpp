@@ -18,49 +18,9 @@ namespace momom {
     // HeroStats implementation
     // ---------------------------------------------------------------------------------------------
 
-    class HeroStats {
-    private:
-        std::unique_ptr<char[]> data;
-        const static ptrdiff_t StatusOffset = 0;
-        const static ptrdiff_t AbilitiesOffset = 2;
-        const static size_t HeroStatsBlockSize = 12;
-        
-    public:
-        HeroStats(): data{new char[HeroStatsBlockSize]} {}
-        
-        bool hasAbility(Hero::Ability ability) const {
-            return getAbilitiesField() & static_cast<uint32_t>(ability);
-        }
-        
-    private:
-        const std::uint16_t& getStatusField() const {
-            return *reinterpret_cast<uint16_t*>(data.get() + StatusOffset);
-        }
-        
-        const uint32_t& getAbilitiesField() const {
-            return *reinterpret_cast<uint32_t*>(data.get() + AbilitiesOffset);
-        }
-
-        friend std::istream& operator>>(std::istream&, HeroStats&);
-    };
-    
-    std::istream& operator>>(std::istream& is, HeroStats& hs) {
-        is.read(hs.data.get(), HeroStats::HeroStatsBlockSize);
-        return is;
-    }
-
-    // ---------------------------------------------------------------------------------------------
-    // Hero implementation
-    // ---------------------------------------------------------------------------------------------
-    
-    Hero::Hero(): stats{new HeroStats} {}
-    
-    Hero::~Hero() {}
-    
-    std::vector<Hero::Ability> Hero::getAbilities() const {
-        
-        // There's no convenient way to iterate over an enum, so just list all of the abilities here
-        // and iterate over this collection.
+    const std::vector<Hero::Ability>& getAllAbilities() {
+        // There's no convenient way to iterate over an enum, so just list all of the abilities
+        // here. This collection can then be used for iteration.
         const static std::vector<Hero::Ability> allAbilities = {
             Hero::Ability::Agility,
             Hero::Ability::Noble,
@@ -86,13 +46,58 @@ namespace momom {
             Hero::Ability::Leader_Star,
             Hero::Ability::Leader
         };
+        return allAbilities;
+    }
+    
+    class HeroStats {
+    private:
+        std::unique_ptr<char[]> data;
+        const static ptrdiff_t StatusOffset = 0;
+        const static ptrdiff_t AbilitiesOffset = 2;
+        const static ptrdiff_t CastingSkillOffset = 6;
+        const static size_t HeroStatsBlockSize = 12;
         
-        std::vector<Hero::Ability> r;
+    public:
+        HeroStats(): data{new char[HeroStatsBlockSize]} {}
+        
+        std::vector<Hero::Ability> getAbilities() const {
+            std::vector<Hero::Ability> r;
+            uint32_t f = getField<uint32_t>(AbilitiesOffset);
+            std::copy_if(getAllAbilities().begin(), getAllAbilities().end(),
+                         std::back_insert_iterator<std::vector<Hero::Ability>>(r),
+                         [f](Hero::Ability a){ return f & static_cast<uint32_t>(a); });
+            return r;
+        }
+        
+        int getCastingSkill() const {
+            int v = getField<uint8_t>(CastingSkillOffset);
+            return static_cast<int>((v+1) * 2.5);
+        }
+        
+    private:
+        template<typename T> const T& getField(ptrdiff_t offset) const {
+            return *reinterpret_cast<T*>(data.get() + offset);
+        }
+        
+        friend std::istream& operator>>(std::istream&, HeroStats&);
+    };
+    
+    std::istream& operator>>(std::istream& is, HeroStats& hs) {
+        is.read(hs.data.get(), HeroStats::HeroStatsBlockSize);
+        return is;
+    }
+
+    // ---------------------------------------------------------------------------------------------
+    // Hero implementation
+    // ---------------------------------------------------------------------------------------------
+    
+    Hero::Hero(): stats{new HeroStats} {}
+    
+    Hero::~Hero() {}
+    
+    std::vector<Hero::Ability> Hero::getAbilities() const {
         const HeroStats& hs = *stats.get();
-        std::copy_if(allAbilities.begin(), allAbilities.end(),
-                     std::back_insert_iterator<std::vector<Hero::Ability>>(r),
-                     [&hs](Hero::Ability a){ return hs.hasAbility(a); });
-        return r;
+        return hs.getAbilities();
     }
     
     std::istream& operator>>(std::istream& is, Hero& h) {
