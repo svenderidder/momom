@@ -14,7 +14,48 @@
 
 namespace momom {
     
+    // ---------------------------------------------------------------------------------------------
+    // HeroStats implementation
+    // ---------------------------------------------------------------------------------------------
+
+    class HeroStats {
+    private:
+        std::unique_ptr<char> data;
+        const static ptrdiff_t StatusOffset = 0;
+        const static ptrdiff_t AbilitiesOffset = 2;
+        const static size_t HeroStatsBlockSize = 12;
+        
+    public:
+        HeroStats(): data{new char[HeroStatsBlockSize]} {}
+        
+        bool hasAbility(Hero::Ability ability) const {
+            return getAbilitiesField() & static_cast<uint32_t>(ability);
+        }
+        
+    private:
+        const std::uint16_t& getStatusField() const {
+            return *reinterpret_cast<uint16_t*>(data.get() + StatusOffset);
+        }
+        
+        const uint32_t& getAbilitiesField() const {
+            return *reinterpret_cast<uint32_t*>(data.get() + AbilitiesOffset);
+        }
+
+        friend std::istream& operator>>(std::istream&, HeroStats&);
+    };
+    
+    std::istream& operator>>(std::istream& is, HeroStats& hs) {
+        is.read(hs.data.get(), HeroStats::HeroStatsBlockSize);
+        return is;
+    }
+
+    // ---------------------------------------------------------------------------------------------
+    // Hero implementation
+    // ---------------------------------------------------------------------------------------------
+    
     Hero::Hero(): stats{new HeroStats} {}
+    
+    Hero::~Hero() {}
     
     std::vector<Hero::Ability> Hero::getAbilities() const {
         
@@ -60,9 +101,6 @@ namespace momom {
         return is;
     }
 
-    const ptrdiff_t STATUS_OFFSET = 0;
-    const ptrdiff_t ABILITIES_OFFSET = 2;
-    
     const char* toString(Hero::Ability ability) {
         switch(ability) {
             case Hero::Ability::Agility: return "Agility";
@@ -99,21 +137,4 @@ namespace momom {
         return os;
     }
     
-    bool HeroStats::hasAbility(Hero::Ability ability) const {
-        return getAbilitiesField() & static_cast<uint32_t>(ability);
-    }
-    
-    uint16_t HeroStats::getStatusField() const {
-        return *reinterpret_cast<uint16_t*>(data.get() + STATUS_OFFSET);
-    }
-    
-    uint32_t HeroStats::getAbilitiesField() const {
-        return *reinterpret_cast<uint32_t*>(data.get() + ABILITIES_OFFSET);
-    }
-
-    std::istream& operator>>(std::istream& str, momom::HeroStats& h) {
-        str.read(h.getData(), momom::HeroStatsBlockSize);
-        return str;
-    }
 }
-

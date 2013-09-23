@@ -48,6 +48,7 @@ namespace momom {
         };
         
         Hero();
+        ~Hero();
         
         std::vector<Ability> getAbilities() const;
         
@@ -59,28 +60,6 @@ namespace momom {
     
     std::istream& operator>>(std::istream& str, Hero& h);
     
-    const size_t HeroStatsBlockSize = 12;
-    
-    class HeroStats {
-    private:
-        std::unique_ptr<char> data;
-        
-    public:
-        HeroStats(): data{new char[HeroStatsBlockSize]} {}
-        ~HeroStats() {}
-        
-        char* getData() { return data.get(); }
-        const char* getData() const { return data.get(); }
-        
-        bool hasAbility(Hero::Ability ability) const;
-        
-    private:
-        std::uint16_t getStatusField() const;
-        std::uint32_t getAbilitiesField() const;
-    };
-    
-    std::istream& operator>>(std::istream& str, momom::HeroStats& h);
-
 }
 
 #endif
