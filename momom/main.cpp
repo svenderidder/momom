@@ -8,9 +8,7 @@
 
 #include <fstream>
 #include <iostream>
-#include <iomanip>
 
-// #include "Hero.h"
 #include "Savegame.h"
 
 int main(int argc, const char * argv[])
@@ -22,24 +20,6 @@ int main(int argc, const char * argv[])
         std::cout << "Not found!\n";
     }
     
-    /*
-    for(int i = 0; i < 35; ++i) {
-        Hero h;
-        f >> h;
-        std::cout << "#" << i << ": ";
-        for(Hero::Ability a: h.getAbilities()) {
-            std::cout << a << " ";
-        }
-        std::cout << "\n";
-    }
-    
-    f.seekg(0x09D8);
-    GeneralGameData ggd;
-    f >> ggd;
-    
-    std::cout << ggd.getNofWizards() << "\n";
-    */
-    
     Savegame s;
     f >> s;
     
@@ -47,10 +27,9 @@ int main(int argc, const char * argv[])
     std::cout << "Difficulty: " << s.difficulty() << "\n";
     std::cout << "Magic Level: " << s.magicLevel() << "\n";
     std::cout << "Land Size: " << s.landSize() << "\n";
-    
-//    std::cout << d.ggd.get<GeneralGameData::NofWizards>() << "\n";
-//    std::cout << d.ggd.get<GeneralGameData::LandSize>() << "\n";
-//    std::cout << sizeof(d) << "\n";
-//    
+    std::cout << "Cities: " << s.nofCities() << "\n";
+    std::cout << "Units: " << s.nofUnits() << "\n";
+    std::cout << "Turn: " << s.turn() << "\n";
+    std::cout << "Active Unit: " << s.activeUnit() << "\n";
     
 }

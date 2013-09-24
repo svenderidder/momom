@@ -30,10 +30,15 @@ namespace momom {
         Savegame();
         ~Savegame();
         
+        // General game data.
         int nofWizards() const;
         GameDifficulty difficulty() const;
         LandSize landSize() const;
         MagicLevel magicLevel() const;
+        int nofCities() const;
+        int nofUnits() const;
+        int turn() const;
+        int activeUnit() const;
         
         
         friend std::istream& operator>>(std::istream&, Savegame&);

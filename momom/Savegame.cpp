@@ -38,6 +38,30 @@ namespace momom {
         return static_cast<MagicLevel>(v);
     }
 
+    int Savegame::nofCities() const {
+        using f = GeneralGameData::NofCities;
+        f::value_type v = data->general.get<f>();
+        return v;
+    }
+    
+    int Savegame::nofUnits() const {
+        using f = GeneralGameData::NofUnits;
+        f::value_type v = data->general.get<f>();
+        return v;
+    }
+    
+    int Savegame::turn() const {
+        using f = GeneralGameData::CurrentTurn;
+        f::value_type v = data->general.get<f>();
+        return v;
+    }
+    
+    int Savegame::activeUnit() const {
+        using f = GeneralGameData::CurrentUnit;
+        f::value_type v = data->general.get<f>();
+        return v;
+    }
+
     std::istream& operator>>(std::istream& is, Savegame& game) {
         SavegameData& data = *game.data.get();
         is >> data;

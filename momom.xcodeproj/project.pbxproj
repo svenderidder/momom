@@ -11,6 +11,10 @@
 		2608943317F092E200CEA80B /* momom.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2608943217F092E200CEA80B /* momom.1 */; };
 		2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608943D17F0A54800CEA80B /* Hero.cpp */; };
 		2608944217F17E9B00CEA80B /* Savegame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608944117F17E9B00CEA80B /* Savegame.cpp */; };
+		2608944C17F1BF8200CEA80B /* SavegameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608944B17F1BF8200CEA80B /* SavegameData.cpp */; };
+		2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */; };
+		2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608944F17F1CDD500CEA80B /* MagicLevel.cpp */; };
+		2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945117F1CE6F00CEA80B /* LandSize.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +47,10 @@
 		2608944717F1A29B00CEA80B /* SavegameData.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SavegameData.h; sourceTree = "<group>"; };
 		2608944817F1A31800CEA80B /* GeneralGameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralGameData.h; sourceTree = "<group>"; };
 		2608944917F1A3A600CEA80B /* HeroData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroData.h; sourceTree = "<group>"; };
+		2608944B17F1BF8200CEA80B /* SavegameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SavegameData.cpp; sourceTree = "<group>"; };
+		2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDifficulty.cpp; sourceTree = "<group>"; };
+		2608944F17F1CDD500CEA80B /* MagicLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MagicLevel.cpp; sourceTree = "<group>"; };
+		2608945117F1CE6F00CEA80B /* LandSize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LandSize.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +93,13 @@
 				2608944117F17E9B00CEA80B /* Savegame.cpp */,
 				2608944317F1813700CEA80B /* SavegameBlock.h */,
 				2608944417F18E4D00CEA80B /* LandSize.h */,
+				2608945117F1CE6F00CEA80B /* LandSize.cpp */,
 				2608944517F18F1700CEA80B /* MagicLevel.h */,
+				2608944F17F1CDD500CEA80B /* MagicLevel.cpp */,
 				2608944617F18F5800CEA80B /* GameDifficulty.h */,
+				2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */,
 				2608944717F1A29B00CEA80B /* SavegameData.h */,
+				2608944B17F1BF8200CEA80B /* SavegameData.cpp */,
 				2608944817F1A31800CEA80B /* GeneralGameData.h */,
 				2608944917F1A3A600CEA80B /* HeroData.h */,
 			);
@@ -153,8 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */,
+				2608944C17F1BF8200CEA80B /* SavegameData.cpp in Sources */,
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
+				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
 				2608944217F17E9B00CEA80B /* Savegame.cpp in Sources */,
+				2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */,
 				2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
