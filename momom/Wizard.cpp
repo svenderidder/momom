@@ -54,6 +54,12 @@ namespace momom {
         f::value_type v = d->get<f>();
         return static_cast<Personality>(v);
     }
+    
+    Objective Wizard::objective() const {
+        using f = WizardData::Objective;
+        f::value_type v = d->get<f>();
+        return static_cast<Objective>(v);
+    }
 
 
 }

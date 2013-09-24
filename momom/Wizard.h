@@ -14,6 +14,7 @@
 #include "Race.h"
 #include "Banner.h"
 #include "Personality.h"
+#include "Objective.h"
 
 namespace momom {
     
@@ -36,6 +37,7 @@ namespace momom {
         Race homeRace() const;
         Banner banner() const;
         Personality personality() const;
+        Objective objective() const;
         
     };
 }
