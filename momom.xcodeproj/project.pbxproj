@@ -18,6 +18,7 @@
 		2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945517F1DD9500CEA80B /* Wizard.cpp */; };
 		2608945917F1E66000CEA80B /* Race.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945817F1E66000CEA80B /* Race.cpp */; };
 		2608945C17F1E97B00CEA80B /* Banner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945B17F1E97B00CEA80B /* Banner.cpp */; };
+		2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945E17F1EE7400CEA80B /* Personality.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,8 @@
 		2608945817F1E66000CEA80B /* Race.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Race.cpp; sourceTree = "<group>"; };
 		2608945A17F1E91000CEA80B /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
 		2608945B17F1E97B00CEA80B /* Banner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Banner.cpp; sourceTree = "<group>"; };
+		2608945D17F1EE1200CEA80B /* Personality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Personality.h; sourceTree = "<group>"; };
+		2608945E17F1EE7400CEA80B /* Personality.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Personality.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				2608945817F1E66000CEA80B /* Race.cpp */,
 				2608945A17F1E91000CEA80B /* Banner.h */,
 				2608945B17F1E97B00CEA80B /* Banner.cpp */,
+				2608945D17F1EE1200CEA80B /* Personality.h */,
+				2608945E17F1EE7400CEA80B /* Personality.cpp */,
 			);
 			path = momom;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				2608944C17F1BF8200CEA80B /* SavegameData.cpp in Sources */,
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
 				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
+				2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */,
 				2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */,
 				2608944217F17E9B00CEA80B /* Savegame.cpp in Sources */,
 				2608945C17F1E97B00CEA80B /* Banner.cpp in Sources */,

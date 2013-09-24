@@ -18,6 +18,7 @@ namespace momom {
         struct Name: Field<char[20], 0x0001> {};
         struct HomeRace: Field<uint8_t, 0x0015> {};
         struct Banner: Field<uint16_t, 0x0016> {};
+        struct Personality: Field<uint16_t, 0x0018> {};
     };
 }
 

@@ -48,5 +48,12 @@ namespace momom {
         f::value_type v = d->get<f>();
         return static_cast<Banner>(v);
     }
+    
+    Personality Wizard::personality() const {
+        using f = WizardData::Personality;
+        f::value_type v = d->get<f>();
+        return static_cast<Personality>(v);
+    }
+
 
 }

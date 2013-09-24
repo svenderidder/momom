@@ -13,6 +13,7 @@
 
 #include "Race.h"
 #include "Banner.h"
+#include "Personality.h"
 
 namespace momom {
     
@@ -34,6 +35,7 @@ namespace momom {
         std::string name() const;
         Race homeRace() const;
         Banner banner() const;
+        Personality personality() const;
         
     };
 }
