@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2608943117F092E200CEA80B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608943017F092E200CEA80B /* main.cpp */; };
 		2608943317F092E200CEA80B /* momom.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2608943217F092E200CEA80B /* momom.1 */; };
+		2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608943D17F0A54800CEA80B /* Hero.cpp */; };
+		2608944217F17E9B00CEA80B /* Savegame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608944117F17E9B00CEA80B /* Savegame.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,19 @@
 		2608942D17F092E200CEA80B /* momom */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = momom; sourceTree = BUILT_PRODUCTS_DIR; };
 		2608943017F092E200CEA80B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2608943217F092E200CEA80B /* momom.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = momom.1; sourceTree = "<group>"; };
+		2608943B17F09F5100CEA80B /* SAVE1.GAM */ = {isa = PBXFileReference; lastKnownFileType = file; name = SAVE1.GAM; path = test/SAVE1.GAM; sourceTree = "<group>"; };
+		2608943C17F09FF300CEA80B /* Hero.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; name = Hero.h; path = momom/Hero.h; sourceTree = SOURCE_ROOT; };
+		2608943D17F0A54800CEA80B /* Hero.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hero.cpp; sourceTree = "<group>"; };
+		2608943F17F1021A00CEA80B /* Spell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spell.h; sourceTree = "<group>"; };
+		2608944017F17E1100CEA80B /* Savegame.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Savegame.h; sourceTree = "<group>"; };
+		2608944117F17E9B00CEA80B /* Savegame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Savegame.cpp; sourceTree = "<group>"; };
+		2608944317F1813700CEA80B /* SavegameBlock.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SavegameBlock.h; sourceTree = "<group>"; };
+		2608944417F18E4D00CEA80B /* LandSize.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = LandSize.h; sourceTree = "<group>"; };
+		2608944517F18F1700CEA80B /* MagicLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicLevel.h; sourceTree = "<group>"; };
+		2608944617F18F5800CEA80B /* GameDifficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDifficulty.h; sourceTree = "<group>"; };
+		2608944717F1A29B00CEA80B /* SavegameData.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SavegameData.h; sourceTree = "<group>"; };
+		2608944817F1A31800CEA80B /* GeneralGameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralGameData.h; sourceTree = "<group>"; };
+		2608944917F1A3A600CEA80B /* HeroData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroData.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +59,7 @@
 		2608942417F092E200CEA80B = {
 			isa = PBXGroup;
 			children = (
+				2608943A17F09F2C00CEA80B /* Tests */,
 				2608942F17F092E200CEA80B /* momom */,
 				2608942E17F092E200CEA80B /* Products */,
 			);
@@ -62,8 +78,28 @@
 			children = (
 				2608943017F092E200CEA80B /* main.cpp */,
 				2608943217F092E200CEA80B /* momom.1 */,
+				2608943C17F09FF300CEA80B /* Hero.h */,
+				2608943D17F0A54800CEA80B /* Hero.cpp */,
+				2608943F17F1021A00CEA80B /* Spell.h */,
+				2608944017F17E1100CEA80B /* Savegame.h */,
+				2608944117F17E9B00CEA80B /* Savegame.cpp */,
+				2608944317F1813700CEA80B /* SavegameBlock.h */,
+				2608944417F18E4D00CEA80B /* LandSize.h */,
+				2608944517F18F1700CEA80B /* MagicLevel.h */,
+				2608944617F18F5800CEA80B /* GameDifficulty.h */,
+				2608944717F1A29B00CEA80B /* SavegameData.h */,
+				2608944817F1A31800CEA80B /* GeneralGameData.h */,
+				2608944917F1A3A600CEA80B /* HeroData.h */,
 			);
 			path = momom;
+			sourceTree = "<group>";
+		};
+		2608943A17F09F2C00CEA80B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2608943B17F09F5100CEA80B /* SAVE1.GAM */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
+				2608944217F17E9B00CEA80B /* Savegame.cpp in Sources */,
+				2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +233,7 @@
 		2608943717F092E200CEA80B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -202,6 +241,7 @@
 		2608943817F092E200CEA80B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

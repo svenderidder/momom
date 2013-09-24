@@ -10,7 +10,8 @@
 #include <iostream>
 #include <iomanip>
 
-#include "Hero.h"
+// #include "Hero.h"
+#include "SavegameData.h"
 
 int main(int argc, const char * argv[])
 {
@@ -21,6 +22,7 @@ int main(int argc, const char * argv[])
         std::cout << "Not found!\n";
     }
     
+    /*
     for(int i = 0; i < 35; ++i) {
         Hero h;
         f >> h;
@@ -30,5 +32,20 @@ int main(int argc, const char * argv[])
         }
         std::cout << "\n";
     }
+    
+    f.seekg(0x09D8);
+    GeneralGameData ggd;
+    f >> ggd;
+    
+    std::cout << ggd.getNofWizards() << "\n";
+    */
+    
+    SavegameData d;
+    f >> d;
+    
+    std::cout << d.ggd.getNofWizards() << "\n";
+    std::cout << d.ggd.getLandSize() << "\n";
+    std::cout << sizeof(d) << "\n";
+    
     
 }
