@@ -43,8 +43,8 @@ int main(int argc, const char * argv[])
     SavegameData d;
     f >> d;
     
-    std::cout << d.ggd.getNofWizards() << "\n";
-    std::cout << d.ggd.getLandSize() << "\n";
+    std::cout << d.ggd.get<GeneralGameData::NofWizards>() << "\n";
+    std::cout << d.ggd.get<GeneralGameData::LandSize>() << "\n";
     std::cout << sizeof(d) << "\n";
     
     

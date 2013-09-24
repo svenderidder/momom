@@ -17,18 +17,20 @@
 namespace momom {
     
     struct GeneralGameData {
-        const static size_t GeneralGameDataBlockSize = 16;
-        const static ptrdiff_t NofWizardsOffset = 0;
-        const static ptrdiff_t LandSizeOffset = 2;
-        const static ptrdiff_t MagicLevelOffset = 4;
-        const static ptrdiff_t GameDifficultyOffset = 6;
-        const static ptrdiff_t NofCitiesOffset = 8;
-        const static ptrdiff_t NofUnitsOffset = 10;
-        const static ptrdiff_t CurrentTurnOffset = 12;
-        const static ptrdiff_t CurrentUnitOffset = 14;
-        SavegameBlock<GeneralGameDataBlockSize> block;
+        struct NofWizards: Field<uint16_t, 0> {};
+        struct LandSize: Field<uint16_t, 2> {};
+        struct MagicLevel: Field<uint16_t, 4> {};
+        struct GameDifficulty: Field<uint16_t, 6> {};
+        struct NofCities: Field<uint16_t, 8> {};
+        struct NofUnits: Field<uint16_t, 10> {};
+        struct CurrentTurn: Field<uint16_t, 12> {};
+        struct CurrentUnit: Field<uint16_t, 14> {};
+        SavegameBlock<16> block;
         
-        uint16_t getNofWizards() const { return block.getField<uint16_t>(NofWizardsOffset); }
+        template<typename F> typename F::value_type get() const { return block.get<F>(); }
+        
+        /*
+        NofWizards::value_type getNofWizards() const { return block.get<NofWizards>(); }
         uint16_t getLandSize() const { return block.getField<uint16_t>(LandSizeOffset); }
         uint16_t getMagicLevel() const { return block.getField<uint16_t>(MagicLevelOffset); }
         uint16_t getGameDifficulty() const { return block.getField<uint16_t>(GameDifficultyOffset); }
@@ -36,7 +38,7 @@ namespace momom {
         uint16_t getNofUnits() const { return block.getField<uint16_t>(NofUnitsOffset); }
         uint16_t getCurrentTurn() const { return block.getField<uint16_t>(CurrentTurnOffset); }
         uint16_t getCurrentUnit() const { return block.getField<uint16_t>(CurrentUnitOffset); }
-        
+        */
     };
     
     std::istream& operator>>(std::istream& is, GeneralGameData& ggd) {

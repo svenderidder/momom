@@ -14,6 +14,12 @@
 
 namespace momom {
     
+    template<typename T, size_t O>
+    struct Field {
+        typedef T value_type;
+        const static size_t offset = O;
+    };
+    
     template<size_t Sz> struct SavegameBlock {
         const static size_t blocksize = Sz;
         char data[Sz];
@@ -25,6 +31,10 @@ namespace momom {
         template<typename T> const T& getField(ptrdiff_t offset) const {
             assert(offset + sizeof(T) <= blocksize);
             return *reinterpret_cast<const T*>(&data[0] + offset);
+        }
+        
+        template<typename F> const typename F::value_type& get() const {
+            return *reinterpret_cast<const typename F::value_type*>(&data[0] + F::offset);
         }
     
     };
