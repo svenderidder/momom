@@ -21,6 +21,10 @@ namespace momom {
         
         is >> d.general;
         
+        for(int i = 0; i < 5; ++i) {
+            is >> d.wizards[i];
+        }
+        
         return is;
     }
 

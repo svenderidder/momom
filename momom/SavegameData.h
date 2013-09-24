@@ -14,6 +14,7 @@
 #include "SavegameBlock.h"
 #include "HeroData.h"
 #include "GeneralGameData.h"
+#include "WizardData.h"
 
 namespace momom {
     
@@ -21,6 +22,7 @@ namespace momom {
         HeroData herodata[35*5];
         SavegameBlock<420> unknown;
         GeneralGameData general;
+        WizardData wizards[5];
     };
     
     std::istream& operator>>(std::istream&, SavegameData&);

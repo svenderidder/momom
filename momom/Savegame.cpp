@@ -17,7 +17,7 @@ namespace momom {
     int Savegame::nofWizards() const {
         using f = GeneralGameData::NofWizards;
         f::value_type v = data->general.get<f>();
-        return v - 1;
+        return v;
     }
 
     GameDifficulty Savegame::difficulty() const {
@@ -60,6 +60,11 @@ namespace momom {
         using f = GeneralGameData::CurrentUnit;
         f::value_type v = data->general.get<f>();
         return v;
+    }
+    
+    const Wizard Savegame::wizard(int index) const {
+        WizardData* wd = &data->wizards[index];
+        return Wizard(wd);
     }
 
     std::istream& operator>>(std::istream& is, Savegame& game) {

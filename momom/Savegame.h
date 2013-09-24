@@ -10,9 +10,11 @@
 #define momom_Savegame_h
 
 #include <memory>
+#include <vector>
 #include <istream>
 
 #include "SavegameData.h"
+#include "Wizard.h"
 #include "GameDifficulty.h"
 #include "LandSize.h"
 #include "MagicLevel.h"
@@ -39,6 +41,9 @@ namespace momom {
         int nofUnits() const;
         int turn() const;
         int activeUnit() const;
+        
+        // Wizards
+        const Wizard wizard(int index) const;
         
         
         friend std::istream& operator>>(std::istream&, Savegame&);

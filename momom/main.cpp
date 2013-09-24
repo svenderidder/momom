@@ -10,6 +10,8 @@
 #include <iostream>
 
 #include "Savegame.h"
+#include "WizardData.h"
+#include "Wizard.h"
 
 int main(int argc, const char * argv[])
 {
@@ -31,5 +33,11 @@ int main(int argc, const char * argv[])
     std::cout << "Units: " << s.nofUnits() << "\n";
     std::cout << "Turn: " << s.turn() << "\n";
     std::cout << "Active Unit: " << s.activeUnit() << "\n";
+    
+    for(int i = 0; i < s.nofWizards(); ++i) {
+        Wizard w = s.wizard(i);
+        std::cout << "Wizard #" << i << ": " << w.name() << "\n";
+        
+    }
     
 }
