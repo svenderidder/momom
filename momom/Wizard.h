@@ -11,6 +11,8 @@
 
 #include <string>
 
+#include "Race.h"
+
 namespace momom {
     
     class WizardData;
@@ -29,6 +31,7 @@ namespace momom {
         Wizard& operator=(Wizard&& other);
         
         std::string name() const;
+        Race homeRace() const;
         
     };
 }

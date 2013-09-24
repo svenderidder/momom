@@ -36,7 +36,7 @@ int main(int argc, const char * argv[])
     
     for(int i = 0; i < s.nofWizards(); ++i) {
         Wizard w = s.wizard(i);
-        std::cout << "Wizard #" << i << ": " << w.name() << "\n";
+        std::cout << "Wizard #" << i << ": " << w.name() << " (" << w.homeRace() << ")\n";
         
     }
     

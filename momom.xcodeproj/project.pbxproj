@@ -15,6 +15,8 @@
 		2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */; };
 		2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608944F17F1CDD500CEA80B /* MagicLevel.cpp */; };
 		2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945117F1CE6F00CEA80B /* LandSize.cpp */; };
+		2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945517F1DD9500CEA80B /* Wizard.cpp */; };
+		2608945917F1E66000CEA80B /* Race.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945817F1E66000CEA80B /* Race.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +53,11 @@
 		2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDifficulty.cpp; sourceTree = "<group>"; };
 		2608944F17F1CDD500CEA80B /* MagicLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MagicLevel.cpp; sourceTree = "<group>"; };
 		2608945117F1CE6F00CEA80B /* LandSize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LandSize.cpp; sourceTree = "<group>"; };
+		2608945317F1D78A00CEA80B /* WizardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WizardData.h; sourceTree = "<group>"; };
+		2608945417F1DD1700CEA80B /* Wizard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wizard.h; sourceTree = "<group>"; };
+		2608945517F1DD9500CEA80B /* Wizard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wizard.cpp; sourceTree = "<group>"; };
+		2608945717F1E59D00CEA80B /* Race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Race.h; sourceTree = "<group>"; };
+		2608945817F1E66000CEA80B /* Race.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Race.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +109,11 @@
 				2608944B17F1BF8200CEA80B /* SavegameData.cpp */,
 				2608944817F1A31800CEA80B /* GeneralGameData.h */,
 				2608944917F1A3A600CEA80B /* HeroData.h */,
+				2608945317F1D78A00CEA80B /* WizardData.h */,
+				2608945417F1DD1700CEA80B /* Wizard.h */,
+				2608945517F1DD9500CEA80B /* Wizard.cpp */,
+				2608945717F1E59D00CEA80B /* Race.h */,
+				2608945817F1E66000CEA80B /* Race.cpp */,
 			);
 			path = momom;
 			sourceTree = "<group>";
@@ -165,10 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2608945917F1E66000CEA80B /* Race.cpp in Sources */,
 				2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */,
 				2608944C17F1BF8200CEA80B /* SavegameData.cpp in Sources */,
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
 				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
+				2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */,
 				2608944217F17E9B00CEA80B /* Savegame.cpp in Sources */,
 				2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */,
 				2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */,

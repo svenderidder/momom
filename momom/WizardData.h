@@ -16,6 +16,7 @@ namespace momom {
     struct WizardData: SavegameBlock<0x04C8> {
         struct Portrait: Field<uint8_t, 0x0000> {};
         struct Name: Field<char[20], 0x0001> {};
+        struct HomeRace: Field<uint8_t, 0x0015> {};
     };
 }
 

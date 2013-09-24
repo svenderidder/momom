@@ -32,7 +32,15 @@ namespace momom {
     }
     
     std::string Wizard::name() const {
-        const char* p = &d->get<WizardData::Name>()[0];
+        using f = WizardData::Name;
+        const char* p = &d->get<f>()[0];
         return std::string(p);
     }
+    
+    Race Wizard::homeRace() const {
+        using f = WizardData::HomeRace;
+        f::value_type v = d->get<f>();
+        return static_cast<Race>(v);
+    }
+
 }
