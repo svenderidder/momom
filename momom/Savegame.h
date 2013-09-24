@@ -13,12 +13,15 @@
 #include <istream>
 
 #include "SavegameData.h"
+#include "GameDifficulty.h"
+#include "LandSize.h"
+#include "MagicLevel.h"
 
 namespace momom {
     
     class Savegame {
     private:
-        std::unique_ptr<SavegameData> data;
+        std::unique_ptr<class SavegameData> data;
     
     public:
         const static int NumberOfHeroes = 35;
@@ -26,6 +29,12 @@ namespace momom {
         
         Savegame();
         ~Savegame();
+        
+        int nofWizards() const;
+        GameDifficulty difficulty() const;
+        LandSize landSize() const;
+        MagicLevel magicLevel() const;
+        
         
         friend std::istream& operator>>(std::istream&, Savegame&);
     };

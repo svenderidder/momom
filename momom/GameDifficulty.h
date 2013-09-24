@@ -9,6 +9,8 @@
 #ifndef momom_GameDifficulty_h
 #define momom_GameDifficulty_h
 
+#include <ostream>
+
 namespace momom {
     
     enum class GameDifficulty {
@@ -18,6 +20,10 @@ namespace momom {
         Hard = 3,
         Impossible = 4
     };
+    
+    const char* toString(GameDifficulty);
+    
+    std::ostream& operator<<(std::ostream&, GameDifficulty);
 
 }
 

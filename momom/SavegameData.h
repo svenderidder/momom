@@ -20,7 +20,7 @@ namespace momom {
     struct SavegameData {
         HeroData herodata[35*5];
         SavegameBlock<420> unknown;
-        GeneralGameData ggd;
+        GeneralGameData general;
     };
     
     std::istream& operator>>(std::istream&, SavegameData&);

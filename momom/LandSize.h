@@ -9,6 +9,8 @@
 #ifndef momom_LandSize_h
 #define momom_LandSize_h
 
+#include <ostream>
+
 namespace momom {
     
     enum class LandSize {
@@ -16,6 +18,11 @@ namespace momom {
         Medium = 1,
         Large = 2
     };
+
+    const char* toString(LandSize);
+    
+    std::ostream& operator<<(std::ostream&, LandSize);
+
 }
 
 #endif

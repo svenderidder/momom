@@ -19,7 +19,7 @@ namespace momom {
         
         is >> d.unknown;
         
-        is >> d.ggd;
+        is >> d.general;
         
         return is;
     }

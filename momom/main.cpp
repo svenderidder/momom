@@ -43,6 +43,11 @@ int main(int argc, const char * argv[])
     Savegame s;
     f >> s;
     
+    std::cout << "Wizards: " << s.nofWizards() << "\n";
+    std::cout << "Difficulty: " << s.difficulty() << "\n";
+    std::cout << "Magic Level: " << s.magicLevel() << "\n";
+    std::cout << "Land Size: " << s.landSize() << "\n";
+    
 //    std::cout << d.ggd.get<GeneralGameData::NofWizards>() << "\n";
 //    std::cout << d.ggd.get<GeneralGameData::LandSize>() << "\n";
 //    std::cout << sizeof(d) << "\n";

@@ -9,6 +9,8 @@
 #ifndef momom_MagicLevel_h
 #define momom_MagicLevel_h
 
+#include <ostream>
+
 namespace momom {
     
     enum class MagicLevel {
@@ -17,6 +19,9 @@ namespace momom {
         Powerful = 2
     };
 
+    const char* toString(MagicLevel);
+    
+    std::ostream& operator<<(std::ostream&, MagicLevel);
 }
 
 #endif
