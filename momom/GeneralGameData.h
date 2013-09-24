@@ -9,7 +9,7 @@
 #ifndef momom_GeneralGameData_h
 #define momom_GeneralGameData_h
 
-#include <cstddef>
+#include <cstdint>
 
 #include "SavegameBlock.h"
 
