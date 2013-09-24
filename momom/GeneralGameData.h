@@ -28,17 +28,6 @@ namespace momom {
         SavegameBlock<16> block;
         
         template<typename F> typename F::value_type get() const { return block.get<F>(); }
-        
-        /*
-        NofWizards::value_type getNofWizards() const { return block.get<NofWizards>(); }
-        uint16_t getLandSize() const { return block.getField<uint16_t>(LandSizeOffset); }
-        uint16_t getMagicLevel() const { return block.getField<uint16_t>(MagicLevelOffset); }
-        uint16_t getGameDifficulty() const { return block.getField<uint16_t>(GameDifficultyOffset); }
-        uint16_t getNofCities() const { return block.getField<uint16_t>(NofCitiesOffset); }
-        uint16_t getNofUnits() const { return block.getField<uint16_t>(NofUnitsOffset); }
-        uint16_t getCurrentTurn() const { return block.getField<uint16_t>(CurrentTurnOffset); }
-        uint16_t getCurrentUnit() const { return block.getField<uint16_t>(CurrentUnitOffset); }
-        */
     };
     
     std::istream& operator>>(std::istream& is, GeneralGameData& ggd) {

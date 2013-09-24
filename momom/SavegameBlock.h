@@ -34,6 +34,8 @@ namespace momom {
         }
         
         template<typename F> const typename F::value_type& get() const {
+            static_assert(F::offset + sizeof(typename F::value_type) <= Sz,
+                          "Field outside of bounds");
             return *reinterpret_cast<const typename F::value_type*>(&data[0] + F::offset);
         }
     
