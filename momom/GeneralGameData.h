@@ -16,7 +16,7 @@
 
 namespace momom {
     
-    struct GeneralGameData {
+    struct GeneralGameData: SavegameBlock<16> {
         struct NofWizards: Field<uint16_t, 0> {};
         struct LandSize: Field<uint16_t, 2> {};
         struct MagicLevel: Field<uint16_t, 4> {};
@@ -25,16 +25,8 @@ namespace momom {
         struct NofUnits: Field<uint16_t, 10> {};
         struct CurrentTurn: Field<uint16_t, 12> {};
         struct CurrentUnit: Field<uint16_t, 14> {};
-        SavegameBlock<16> block;
-        
-        template<typename F> typename F::value_type get() const { return block.get<F>(); }
     };
     
-    std::istream& operator>>(std::istream& is, GeneralGameData& ggd) {
-        is >> ggd.block;
-        return is;
-    }
-
 }
 
 #endif
