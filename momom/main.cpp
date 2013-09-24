@@ -11,7 +11,7 @@
 #include <iomanip>
 
 // #include "Hero.h"
-#include "SavegameData.h"
+#include "Savegame.h"
 
 int main(int argc, const char * argv[])
 {
@@ -40,12 +40,12 @@ int main(int argc, const char * argv[])
     std::cout << ggd.getNofWizards() << "\n";
     */
     
-    SavegameData d;
-    f >> d;
+    Savegame s;
+    f >> s;
     
-    std::cout << d.ggd.get<GeneralGameData::NofWizards>() << "\n";
-    std::cout << d.ggd.get<GeneralGameData::LandSize>() << "\n";
-    std::cout << sizeof(d) << "\n";
-    
+//    std::cout << d.ggd.get<GeneralGameData::NofWizards>() << "\n";
+//    std::cout << d.ggd.get<GeneralGameData::LandSize>() << "\n";
+//    std::cout << sizeof(d) << "\n";
+//    
     
 }

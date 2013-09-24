@@ -6,34 +6,18 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
-/*
 #include "Savegame.h"
 
 namespace momom {
     
-    class GeneralGameData {
-    private:
-        std::unique_ptr<char[]> data;
-        const static size_t GeneralGameDataBlockSize = 16;
+    Savegame::Savegame(): data{new SavegameData} {}
     
-    public:
-        GeneralGameData(): data{new char[GeneralGameDataBlockSize]} {}
-        ~GeneralGameData() {}
-        
-    private:
-        friend std::istream& operator>>(std::istream&, GeneralGameData&);
-        
-    };
-    
-    std::istream& operator>>(std::istream& is, GeneralGameData& ggd) {
-        is.read(ggd.data.get(), GeneralGameData::GeneralGameDataBlockSize);
+    Savegame::~Savegame() {}
+
+    std::istream& operator>>(std::istream& is, Savegame& game) {
+        SavegameData& data = *game.data.get();
+        is >> data;
         return is;
     }
-    
-    class SavegameData {
-        
-    };
-    
-}
 
-*/
+}

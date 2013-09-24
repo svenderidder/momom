@@ -9,16 +9,17 @@
 #ifndef momom_Savegame_h
 #define momom_Savegame_h
 
-#include <cstddef>
+#include <memory>
+#include <istream>
 
-#include "SavegameBlock.h"
+#include "SavegameData.h"
 
 namespace momom {
     
-    /*
     class Savegame {
     private:
-        std::unique_ptr<class SavegameData> data;
+        std::unique_ptr<SavegameData> data;
+    
     public:
         const static int NumberOfHeroes = 35;
         const static int MaxWizards = 5;
@@ -26,11 +27,10 @@ namespace momom {
         Savegame();
         ~Savegame();
         
+        friend std::istream& operator>>(std::istream&, Savegame&);
     };
-     */
     
-    
-    
+    std::istream& operator>>(std::istream& is, Savegame& game);
     
 }
 
