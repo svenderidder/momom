@@ -43,4 +43,10 @@ namespace momom {
         return static_cast<Race>(v);
     }
 
+    Banner Wizard::banner() const {
+        using f = WizardData::Banner;
+        f::value_type v = d->get<f>();
+        return static_cast<Banner>(v);
+    }
+
 }

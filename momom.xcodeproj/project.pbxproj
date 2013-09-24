@@ -17,6 +17,7 @@
 		2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945117F1CE6F00CEA80B /* LandSize.cpp */; };
 		2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945517F1DD9500CEA80B /* Wizard.cpp */; };
 		2608945917F1E66000CEA80B /* Race.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945817F1E66000CEA80B /* Race.cpp */; };
+		2608945C17F1E97B00CEA80B /* Banner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945B17F1E97B00CEA80B /* Banner.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,8 @@
 		2608945517F1DD9500CEA80B /* Wizard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wizard.cpp; sourceTree = "<group>"; };
 		2608945717F1E59D00CEA80B /* Race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Race.h; sourceTree = "<group>"; };
 		2608945817F1E66000CEA80B /* Race.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Race.cpp; sourceTree = "<group>"; };
+		2608945A17F1E91000CEA80B /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
+		2608945B17F1E97B00CEA80B /* Banner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Banner.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				2608945517F1DD9500CEA80B /* Wizard.cpp */,
 				2608945717F1E59D00CEA80B /* Race.h */,
 				2608945817F1E66000CEA80B /* Race.cpp */,
+				2608945A17F1E91000CEA80B /* Banner.h */,
+				2608945B17F1E97B00CEA80B /* Banner.cpp */,
 			);
 			path = momom;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
 				2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */,
 				2608944217F17E9B00CEA80B /* Savegame.cpp in Sources */,
+				2608945C17F1E97B00CEA80B /* Banner.cpp in Sources */,
 				2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */,
 				2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */,
 			);
