@@ -10,7 +10,6 @@
 #define momom_GeneralGameData_h
 
 #include <cstddef>
-#include <istream>
 
 #include "SavegameBlock.h"
 
