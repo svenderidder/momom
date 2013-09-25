@@ -40,7 +40,7 @@ namespace momom {
         struct TaxRate: Field<uint16_t, 0x0058> {};
         struct SpellBooks: Field<uint16_t[5], 0x005A> {};
         struct Retorts: Field<uint8_t[18], 0x0064> {};
-        // TODO: Hired heroes
+        struct HiredHeroData: Field<char[28*6], 0x0066> {};
         struct BankedItems: Field<uint16_t[4], 0x0120> {};
         struct WizardsContacted: Field<uint8_t[6], 0x0128> {};
         struct WizardRelationScores: Field<uint8_t[6], 0x0152> {};
