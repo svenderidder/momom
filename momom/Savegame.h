@@ -29,7 +29,7 @@ namespace momom {
         const static int NumberOfHeroes = 35;
         const static int MaxWizards = 5;
         
-        Savegame();
+        Savegame(const char* filename);
         ~Savegame();
         
         // General game data.

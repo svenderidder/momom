@@ -17,12 +17,14 @@ int main(int argc, const char * argv[])
 {
     using namespace momom;
     
-    std::ifstream f("/Users/sven/Emulation/DOS/mom/SAVE1.GAM", std::ios::in | std::ios::binary);
+    const char* filename = "/Users/sven/Emulation/DOS/mom/SAVE1.GAM";
+    
+    std::ifstream f(filename, std::ios::in | std::ios::binary);
     if(!f) {
         std::cout << "Not found!\n";
     }
     
-    Savegame s;
+    Savegame s(filename);
     f >> s;
     
     std::cout << "Wizards: " << s.nofWizards() << "\n";

@@ -10,7 +10,7 @@
 
 namespace momom {
     
-    Savegame::Savegame(): data{new SavegameData} {}
+    Savegame::Savegame(const char* filename): data{new SavegameData(filename)} {}
     
     Savegame::~Savegame() {}
     

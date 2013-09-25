@@ -9,6 +9,7 @@
 #ifndef momom_SavegameData_h
 #define momom_SavegameData_h
 
+#include <boost/interprocess/file_mapping.hpp>
 #include <istream>
 
 #include "SavegameBlock.h"
@@ -18,7 +19,14 @@
 
 namespace momom {
     
-    struct SavegameData {
+    class SavegameData {
+    private:
+        boost::interprocess::file_mapping raw_data;
+        
+    public:
+        SavegameData(const char* filename);
+        ~SavegameData();
+        
         HeroData herodata[35*5];
         SavegameBlock<420> unknown;
         GeneralGameData general;

@@ -10,6 +10,11 @@
 
 namespace momom {
     
+    SavegameData::SavegameData(const char* filename)
+        : raw_data(filename, boost::interprocess::read_only) {}
+    
+    SavegameData::~SavegameData() {}
+    
     std::istream& operator>>(std::istream& is, SavegameData& d) {
         for(int w = 0; w < 5; ++w) {
             for(int h = 0; h < 35; ++h) {
