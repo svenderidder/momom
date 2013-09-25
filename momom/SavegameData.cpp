@@ -11,7 +11,8 @@
 namespace momom {
     
     SavegameData::SavegameData(const char* filename)
-        : raw_data(filename, boost::interprocess::read_only) {}
+        : mapped(filename, boost::interprocess::read_only)
+        , general(mapped, mapped.get_mode(), 0x09D8) {}
     
     SavegameData::~SavegameData() {}
     
@@ -24,12 +25,13 @@ namespace momom {
         
         is >> d.unknown;
         
+        /*
         is >> d.general;
         
         for(int i = 0; i < 5; ++i) {
             is >> d.wizards[i];
         }
-        
+        */
         return is;
     }
 

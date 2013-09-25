@@ -21,7 +21,7 @@ namespace momom {
     
     class SavegameData {
     private:
-        boost::interprocess::file_mapping raw_data;
+        boost::interprocess::file_mapping mapped;
         
     public:
         SavegameData(const char* filename);

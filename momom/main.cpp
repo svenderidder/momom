@@ -36,11 +36,13 @@ int main(int argc, const char * argv[])
     std::cout << "Turn: " << s.turn() << "\n";
     std::cout << "Active Unit: " << s.activeUnit() << "\n";
     
+    /*
     for(int i = 0; i < s.nofWizards(); ++i) {
         Wizard w = s.wizard(i);
         std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
             "/" << w.objective() << ")\n";
         
     }
+     */
     
 }
