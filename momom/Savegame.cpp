@@ -63,7 +63,7 @@ namespace momom {
     }
     
     const Wizard Savegame::wizard(int index) const {
-        WizardData::Block_t* wd = nullptr; // &data->wizards[index];
+        WizardData::Block_t* wd = &data->wizards[index];
         return Wizard(wd);
     }
 

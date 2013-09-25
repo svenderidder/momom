@@ -12,7 +12,6 @@
 #include <boost/interprocess/file_mapping.hpp>
 #include <istream>
 
-#include "SavegameBlock.h"
 #include "HeroData.h"
 #include "GeneralGameData.h"
 #include "WizardData.h"
@@ -27,7 +26,10 @@ namespace momom {
         SavegameData(const char* filename);
         ~SavegameData();
         
+        HeroData::Block_t heroes[35*5];
         GeneralGameData::Block_t general;
+        WizardData::Block_t wizards[5];
+        
         /*
         HeroData herodata[35*5];
         SavegameBlock<420> unknown;

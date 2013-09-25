@@ -16,6 +16,8 @@
 namespace momom {
     
     namespace HeroData {
+        typedef SavegameBlock<16> Block_t;
+        
         struct Status: Field<uint16_t, 0> {};
         struct Abilities: Field<uint32_t, 2> {};
         struct CastingSkill: Field<uint8_t, 6> {};
