@@ -19,13 +19,7 @@ int main(int argc, const char * argv[])
     
     const char* filename = "/Users/sven/Emulation/DOS/mom/SAVE1.GAM";
     
-    std::ifstream f(filename, std::ios::in | std::ios::binary);
-    if(!f) {
-        std::cout << "Not found!\n";
-    }
-    
     Savegame s(filename);
-    f >> s;
     
     std::cout << "Wizards: " << s.nofWizards() << "\n";
     std::cout << "Difficulty: " << s.difficulty() << "\n";

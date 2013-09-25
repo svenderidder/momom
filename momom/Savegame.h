@@ -11,7 +11,6 @@
 
 #include <memory>
 #include <vector>
-#include <istream>
 
 #include "SavegameData.h"
 #include "Wizard.h"
@@ -45,11 +44,7 @@ namespace momom {
         // Wizards
         const Wizard wizard(int index) const;
         
-        
-        friend std::istream& operator>>(std::istream&, Savegame&);
     };
-    
-    std::istream& operator>>(std::istream& is, Savegame& game);
     
 }
 

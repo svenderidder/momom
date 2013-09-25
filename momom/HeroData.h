@@ -15,7 +15,7 @@
 
 namespace momom {
     
-    struct HeroData: SavegameBlock<12> {
+    namespace HeroData {
         struct Status: Field<uint16_t, 0> {};
         struct Abilities: Field<uint32_t, 2> {};
         struct CastingSkill: Field<uint8_t, 6> {};

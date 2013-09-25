@@ -7,11 +7,10 @@
 //
 
 #include "Wizard.h"
-#include "WizardData.h"
 
 namespace momom {
     
-    Wizard::Wizard(WizardData* data): d{data} {}
+    Wizard::Wizard(WizardData::Block_t* data): d{data} {}
     
     // Wizard::Wizard(const Wizard& other): d{other.d} {}
         
@@ -39,25 +38,25 @@ namespace momom {
     
     Race Wizard::homeRace() const {
         using f = WizardData::HomeRace;
-        f::value_type v = d->get<f>();
+        f::T v = d->get<f>();
         return static_cast<Race>(v);
     }
 
     Banner Wizard::banner() const {
         using f = WizardData::Banner;
-        f::value_type v = d->get<f>();
+        f::T v = d->get<f>();
         return static_cast<Banner>(v);
     }
     
     Personality Wizard::personality() const {
         using f = WizardData::Personality;
-        f::value_type v = d->get<f>();
+        f::T v = d->get<f>();
         return static_cast<Personality>(v);
     }
     
     Objective Wizard::objective() const {
         using f = WizardData::Objective;
-        f::value_type v = d->get<f>();
+        f::T v = d->get<f>();
         return static_cast<Objective>(v);
     }
 

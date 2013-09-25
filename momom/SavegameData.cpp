@@ -11,11 +11,13 @@
 namespace momom {
     
     SavegameData::SavegameData(const char* filename)
-        : mapped(filename, boost::interprocess::read_only)
-        , general(mapped, mapped.get_mode(), 0x09D8) {}
+    : mapped(filename, boost::interprocess::read_only) {
+        general.init(mapped, 0x09D8);
+    }
     
     SavegameData::~SavegameData() {}
     
+    /*
     std::istream& operator>>(std::istream& is, SavegameData& d) {
         for(int w = 0; w < 5; ++w) {
             for(int h = 0; h < 35; ++h) {
@@ -25,14 +27,15 @@ namespace momom {
         
         is >> d.unknown;
         
-        /*
         is >> d.general;
         
         for(int i = 0; i < 5; ++i) {
             is >> d.wizards[i];
         }
-        */
+
         return is;
     }
+     
+    */
 
 }

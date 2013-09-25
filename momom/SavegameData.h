@@ -27,13 +27,16 @@ namespace momom {
         SavegameData(const char* filename);
         ~SavegameData();
         
+        GeneralGameData::Block_t general;
+        /*
         HeroData herodata[35*5];
         SavegameBlock<420> unknown;
         GeneralGameData general;
         WizardData wizards[5];
+        */
     };
     
-    std::istream& operator>>(std::istream&, SavegameData&);
+    // std::istream& operator>>(std::istream&, SavegameData&);
     
 }
 

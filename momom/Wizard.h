@@ -11,6 +11,8 @@
 
 #include <string>
 
+#include "WizardData.h"
+#include "SavegameBlock.h"
 #include "Race.h"
 #include "Banner.h"
 #include "Personality.h"
@@ -18,14 +20,9 @@
 
 namespace momom {
     
-    class WizardData;
-    
     class Wizard {
-    private:
-        WizardData* d;
-        
     public:
-        Wizard(WizardData* data);
+        Wizard(WizardData::Block_t* data);
         Wizard(const Wizard& other) = default;
         Wizard(Wizard&& other);
         ~Wizard();
@@ -39,6 +36,9 @@ namespace momom {
         Personality personality() const;
         Objective objective() const;
         
+    private:
+        WizardData::Block_t* d;
+    
     };
 }
 
