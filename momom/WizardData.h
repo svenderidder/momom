@@ -9,12 +9,12 @@
 #ifndef momom_WizardData_h
 #define momom_WizardData_h
 
-#include "SavegameBlock.h"
+#include "SavegameRegion.h"
 
 namespace momom {
     
     namespace WizardData {
-        typedef SavegameBlock<1224> Block_t;
+        typedef SavegameRegion<1224> Block_t;
         
         struct Portrait: Field<uint8_t, 0x0000> {};
         struct Name: Field<char[20], 0x0001> {};

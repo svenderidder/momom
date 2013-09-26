@@ -12,12 +12,12 @@
 #include <boost/interprocess/mapped_region.hpp>
 #include <cstdint>
 
-#include "SavegameBlock.h"
+#include "SavegameRegion.h"
 
 namespace momom {
     
     namespace GeneralGameData {
-        typedef SavegameBlock<16> Block_t;
+        typedef SavegameRegion<16> Block_t;
         struct NofWizards: Field<uint16_t, 0> {};
         struct LandSize: Field<uint16_t, 2> {};
         struct MagicLevel: Field<uint16_t, 4> {};

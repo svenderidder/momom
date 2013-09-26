@@ -45,7 +45,7 @@
 		2608943F17F1021A00CEA80B /* Spell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spell.h; sourceTree = "<group>"; };
 		2608944017F17E1100CEA80B /* Savegame.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Savegame.h; sourceTree = "<group>"; };
 		2608944117F17E9B00CEA80B /* Savegame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Savegame.cpp; sourceTree = "<group>"; };
-		2608944317F1813700CEA80B /* SavegameBlock.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SavegameBlock.h; sourceTree = "<group>"; };
+		2608944317F1813700CEA80B /* SavegameRegion.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SavegameRegion.h; sourceTree = "<group>"; };
 		2608944417F18E4D00CEA80B /* LandSize.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = LandSize.h; sourceTree = "<group>"; };
 		2608944517F18F1700CEA80B /* MagicLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicLevel.h; sourceTree = "<group>"; };
 		2608944617F18F5800CEA80B /* GameDifficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDifficulty.h; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				2608943F17F1021A00CEA80B /* Spell.h */,
 				2608944017F17E1100CEA80B /* Savegame.h */,
 				2608944117F17E9B00CEA80B /* Savegame.cpp */,
-				2608944317F1813700CEA80B /* SavegameBlock.h */,
+				2608944317F1813700CEA80B /* SavegameRegion.h */,
 				2608944417F18E4D00CEA80B /* LandSize.h */,
 				2608945117F1CE6F00CEA80B /* LandSize.cpp */,
 				2608944517F18F1700CEA80B /* MagicLevel.h */,

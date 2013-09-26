@@ -12,7 +12,7 @@
 #include <string>
 
 #include "WizardData.h"
-#include "SavegameBlock.h"
+#include "SavegameRegion.h"
 #include "Race.h"
 #include "Banner.h"
 #include "Personality.h"

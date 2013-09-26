@@ -11,12 +11,12 @@
 
 #include <cstdint>
 
-#include "SavegameBlock.h"
+#include "SavegameRegion.h"
 
 namespace momom {
     
     namespace HeroData {
-        typedef SavegameBlock<16> Block_t;
+        typedef SavegameRegion<16> Block_t;
         
         struct Status: Field<uint16_t, 0> {};
         struct Abilities: Field<uint32_t, 2> {};
