@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
+#include <stdexcept>
 #include "Savegame.h"
 
 namespace momom {
@@ -63,8 +64,15 @@ namespace momom {
     }
     
     const Wizard Savegame::wizard(int index) const {
+        if(index < 0 || index >= nofWizards()) {
+            throw std::range_error("Wizard index out of range");
+        }
         WizardData::Block_t* wd = &data->wizards[index];
         return Wizard(wd);
+    }
+    
+    Savegame load(const char* filename) {
+        return Savegame(filename);
     }
 
 }

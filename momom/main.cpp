@@ -19,7 +19,7 @@ int main(int argc, const char * argv[])
     
     const char* filename = "/Users/sven/Emulation/DOS/mom/SAVE1.GAM";
     
-    Savegame s(filename);
+    Savegame s = load(filename);
     
     std::cout << "Wizards: " << s.nofWizards() << "\n";
     std::cout << "Difficulty: " << s.difficulty() << "\n";
