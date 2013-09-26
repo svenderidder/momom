@@ -30,6 +30,8 @@ namespace momom {
         Savegame(Savegame&& moved) {}
         ~Savegame();
         
+        Savegame& operator=(Savegame&& moved) { return *this; }
+        
         // General game data.
         int nofWizards() const;
         GameDifficulty difficulty() const;
