@@ -10,33 +10,58 @@
 #define momom_SavegameData_h
 
 #include <boost/interprocess/file_mapping.hpp>
-#include <istream>
-
-#include "HeroData.h"
-#include "WizardData.h"
+#include <boost/interprocess/mapped_region.hpp>
 
 namespace momom {
-    
-    class SavegameData {
-    private:
-        boost::interprocess::file_mapping mapped;
-        
-    public:
-        SavegameData(const char* filename);
-        ~SavegameData();
-        
-        HeroData::Block_t heroes[35*5];
-        WizardData::Block_t wizards[5];
-        
-        /*
-        HeroData herodata[35*5];
-        SavegameBlock<420> unknown;
-        GeneralGameData general;
-        WizardData wizards[5];
-        */
+
+    template<ptrdiff_t O, size_t S, int N=1> struct Region {
+        static const ptrdiff_t offset = O;
     };
     
-    // std::istream& operator>>(std::istream&, SavegameData&);
+    template<typename R, typename T, ptrdiff_t O> struct F {
+        typedef R region;
+        typedef T value_type;
+        static const ptrdiff_t offset = O;
+    };
+    
+    struct GlobalHeroRegion: Region<0x0000, 12, 35*5> {};
+    struct HeroStatus: F<GlobalHeroRegion, uint16_t, 0x0000> {};
+    struct HeroAbilities: F<GlobalHeroRegion, uint32_t, 0x0002> {};
+    struct HeroCastingSkill: F<GlobalHeroRegion, uint8_t, 0x0006> {};
+    struct HeroSpells: F<GlobalHeroRegion, uint32_t, 0x0008> {};
+    
+    struct GeneralDataRegion: Region<0x09D8, 16> {};
+    struct NofWizards: F<GeneralDataRegion, uint16_t, 0x0000> {};
+    struct F_LandSize: F<GeneralDataRegion, uint16_t, 0x0002> {};
+    struct F_MagicLevel: F<GeneralDataRegion, uint16_t, 0x0004> {};
+    struct F_GameDifficulty: F<GeneralDataRegion, uint16_t, 0x0006> {};
+    struct NofCities: F<GeneralDataRegion, uint16_t, 0x0008> {};
+    struct NofUnits: F<GeneralDataRegion, uint16_t, 0x000A> {};
+    struct CurrentTurn: F<GeneralDataRegion, uint16_t, 0x000C> {};
+    struct CurrentUnit: F<GeneralDataRegion, uint16_t, 0x000E> {};
+
+    class SavegameData {
+    public:
+        SavegameData(const char* filename)
+        : mapping(filename, boost::interprocess::read_only)
+        , data(mapping, mapping.get_mode()) {}
+        
+        template<typename F> const typename F::value_type& get() const {
+            return *reinterpret_cast<const typename F::value_type*>(
+                static_cast<char*>(data.get_address())
+                    + F::region::offset + F::offset);
+        }
+        
+        template<typename F> const typename F::value_type& get(int index) const {
+            return *reinterpret_cast<const typename F::value_type*>(
+                static_cast<char*>(data.get_address())
+                    + F::region::offset + index * F::size + F::offset);
+        }
+        
+    private:
+        boost::interprocess::file_mapping mapping;
+        boost::interprocess::mapped_region data;
+    };
     
 }
 

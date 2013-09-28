@@ -21,13 +21,12 @@
 namespace momom {
     
     class Savegame {
-        class DataInternals;
     
     public:
         const static int NumberOfHeroes = 35;
         const static int MaxWizards = 5;
         
-        Savegame(const char* filename, DataInternals* internals);
+        Savegame(const char* filename, SavegameData* data);
         Savegame(Savegame&& moved);
         ~Savegame();
         
@@ -44,11 +43,10 @@ namespace momom {
         int activeUnit() const;
         
         // Wizards
-        const Wizard wizard(int index) const;
+        // const Wizard wizard(int index) const;
         
     private:
         std::unique_ptr<class SavegameData> data;
-        std::unique_ptr<DataInternals> di;
         
         friend Savegame load(const char*);
     };
