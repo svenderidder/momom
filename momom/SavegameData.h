@@ -42,6 +42,53 @@ namespace momom {
     struct CurrentTurn: F<GeneralDataRegion, uint16_t, 0x000C> {};
     struct CurrentUnit: F<GeneralDataRegion, uint16_t, 0x000E> {};
 
+    struct WizardRegion: Region<0x09E8, 1224, 5> {};
+    struct Portrait: F<WizardRegion, uint8_t, 0x0000> {};
+    struct Name: F<WizardRegion, char[20], 0x0001> {};
+    struct HomeRace: F<WizardRegion, uint8_t, 0x0015> {};
+    struct F_Banner: F<WizardRegion, uint16_t, 0x0016> {};
+    struct F_Personality: F<WizardRegion, uint16_t, 0x0018> {};
+    struct F_Objective: F<WizardRegion, uint16_t, 0x001A> {};
+    struct Fame: F<WizardRegion, uint16_t, 0x0024> {};
+    struct PowerBase: F<WizardRegion, uint16_t, 0x0026> {};
+    struct ResearchPct: F<WizardRegion, uint8_t, 0x002A> {};
+    struct ManaPct: F<WizardRegion, uint8_t, 0x002B> {};
+    struct SkillPct: F<WizardRegion, uint8_t, 0x002C> {};
+    struct VolcanoMP: F<WizardRegion, uint8_t, 0x002D> {};
+    struct SumCircleX: F<WizardRegion, uint16_t, 0x002E> {};
+    struct SumCircleY: F<WizardRegion, uint16_t, 0x0030> {};
+    struct SumCircleP: F<WizardRegion, uint16_t, 0x0032> {};
+    struct ResearchSpells: F<WizardRegion, uint16_t[8], 0x0034> {};
+    struct GarrisonAvgStr: F<WizardRegion, uint16_t, 0x0048> {};
+    struct SkillCombat: F<WizardRegion, uint16_t, 0x004C> {};
+    struct SpellLeft: F<WizardRegion, uint16_t, 0x004E> {};
+    struct SpellInitial: F<WizardRegion, uint16_t, 0x0050> {};
+    struct CurrentSpell: F<WizardRegion, uint16_t, 0x0052> {};
+    struct TurnUnusedMana: F<WizardRegion, uint16_t, 0x0054> {};
+    struct TurnNominalMana: F<WizardRegion, uint16_t, 0x0056> {};
+    struct TaxRate: F<WizardRegion, uint16_t, 0x0058> {};
+    struct SpellBooks: F<WizardRegion, uint16_t[5], 0x005A> {};
+    struct Retorts: F<WizardRegion, uint8_t[18], 0x0064> {};
+    struct HiredHeroData: F<WizardRegion, char[28*6], 0x0066> {};
+    struct BankedItems: F<WizardRegion, uint16_t[4], 0x0120> {};
+    struct WizardsContacted: F<WizardRegion, uint8_t[6], 0x0128> {};
+    struct WizardRelationScores: F<WizardRegion, uint8_t[6], 0x0152> {};
+    struct WizardRelations: F<WizardRegion, uint8_t[6], 0x0158> {};
+    struct ResearchLeft: F<WizardRegion, uint16_t, 0x025A> {};
+    struct CurrentMana: F<WizardRegion, uint16_t, 0x025C> {};
+    struct CastingSkillSq: F<WizardRegion, uint32_t, 0x025E> {};
+    struct CurrentSpellRes: F<WizardRegion, uint16_t, 0x0262> {};
+    struct SpellStatus: F<WizardRegion, uint8_t[214], 0x0264> {};
+    struct Defeated: F<WizardRegion, uint16_t, 0x0354> {};
+    struct CurrentGold: F<WizardRegion, uint16_t, 0x0356> {};
+    struct AstMagicPower: F<WizardRegion, uint16_t, 0x035A> {};
+    struct AstResearch: F<WizardRegion, uint16_t, 0x035C> {};
+    struct AstStrength: F<WizardRegion, uint16_t, 0x035E> {};
+    struct AstPower: F<WizardRegion, uint16_t, 0x0360> {};
+    struct Historian: F<WizardRegion, uint8_t[288], 0x0362> {};
+    struct Enchantments: F<WizardRegion, uint8_t[24], 0x0482> {};
+    struct PersonalSchool: F<WizardRegion, uint16_t, 0x04C4> {};
+
     class SavegameData {
     public:
         SavegameData(const char* filename)
