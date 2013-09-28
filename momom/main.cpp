@@ -12,6 +12,7 @@
 #include "Savegame.h"
 #include "WizardData.h"
 #include "Wizard.h"
+#include "Hero.h"
 
 int main(int argc, const char * argv[])
 {
@@ -29,6 +30,16 @@ int main(int argc, const char * argv[])
     std::cout << "Units: " << s.nofUnits() << "\n";
     std::cout << "Turn: " << s.turn() << "\n";
     std::cout << "Active Unit: " << s.activeUnit() << "\n";
+    
+    for(int w = 0; w < s.nofWizards(); ++w) {
+        for(int h = 0; h < 35; ++h) {
+            Hero hero = s.hero(w, h);
+            for(Hero::Ability a: hero.getAbilities()) {
+                std::cout << a << " ";
+            }
+            std::cout << "\n";
+        }
+    }
     
     /*
     for(int i = 0; i < s.nofWizards(); ++i) {

@@ -74,6 +74,10 @@ namespace momom {
         return v;
     }
     
+    const Hero Savegame::hero(int wizard_id, int hero_id) const {
+        return Hero(data.get(), wizard_id, hero_id);
+    }
+    
     /*
     const Wizard Savegame::wizard(int index) const {
         if(index < 0 || index >= nofWizards()) {

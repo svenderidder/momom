@@ -11,6 +11,7 @@
 #include <iomanip>
 
 #include "Hero.h"
+#include "SavegameData.h"
 
 namespace momom {
     
@@ -91,21 +92,21 @@ namespace momom {
     // Hero implementation
     // ---------------------------------------------------------------------------------------------
     
-    Hero::Hero(): stats{new HeroStats} {}
-    
-    Hero::~Hero() {}
+    Hero::Hero(SavegameData* data, int wizard_id, int hero_id)
+    : data{data}
+    , wizard_id{wizard_id}
+    , hero_id{hero_id} {}
     
     std::vector<Hero::Ability> Hero::getAbilities() const {
-        const HeroStats& hs = *stats.get();
-        return hs.getAbilities();
+        using f = HeroAbilities;
+        f::value_type v = data->get<f>(hero_index());
+        std::vector<Hero::Ability> r;
+        std::copy_if(getAllAbilities().begin(), getAllAbilities().end(),
+                     std::back_insert_iterator<std::vector<Hero::Ability>>(r),
+                     [v](Hero::Ability a){ return v & static_cast<uint32_t>(a); });
+        return r;
     }
     
-    std::istream& operator>>(std::istream& is, Hero& h) {
-        HeroStats& hs = *h.stats.get();
-        is >> hs;
-        return is;
-    }
-
     const char* toString(Hero::Ability ability) {
         switch(ability) {
             case Hero::Ability::Agility: return "Agility";

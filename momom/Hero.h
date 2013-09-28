@@ -16,9 +16,9 @@
 
 namespace momom {
     
+    class SavegameData;
+    
     class Hero {
-    private:
-        std::unique_ptr<class HeroStats> stats;
         
     public:
         enum class Ability {
@@ -47,18 +47,20 @@ namespace momom {
             Leader =            1 << 0
         };
         
-        Hero();
-        ~Hero();
+        Hero(SavegameData* data, int wizard_id, int hero_id);
         
         std::vector<Ability> getAbilities() const;
         
-        friend std::istream& operator>>(std::istream&, Hero&);
+    private:
+        class SavegameData* data;
+        int wizard_id;
+        int hero_id;
+        
+        int hero_index() const { return wizard_id * 35 + hero_id; }
     };
     
     const char* toString(Hero::Ability ability);
     std::ostream& operator<<(std::ostream& os, Hero::Ability ability);
-    
-    std::istream& operator>>(std::istream& str, Hero& h);
     
 }
 

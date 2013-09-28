@@ -16,6 +16,8 @@ namespace momom {
 
     template<ptrdiff_t O, size_t S, int N=1> struct Region {
         static const ptrdiff_t offset = O;
+        static const size_t size = S;
+        static const int entries = N;
     };
     
     template<typename R, typename T, ptrdiff_t O> struct F {
@@ -53,9 +55,10 @@ namespace momom {
         }
         
         template<typename F> const typename F::value_type& get(int index) const {
+            using R = typename F::region;
             return *reinterpret_cast<const typename F::value_type*>(
                 static_cast<char*>(data.get_address())
-                    + F::region::offset + index * F::size + F::offset);
+                    + R::offset + index * R::size + F::offset);
         }
         
     private:

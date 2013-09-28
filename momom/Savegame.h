@@ -13,6 +13,7 @@
 #include <vector>
 
 #include "SavegameData.h"
+#include "Hero.h"
 #include "Wizard.h"
 #include "GameDifficulty.h"
 #include "LandSize.h"
@@ -41,6 +42,9 @@ namespace momom {
         int nofUnits() const;
         int turn() const;
         int activeUnit() const;
+        
+        // Heroes
+        const Hero hero(int wizard_id, int hero_id) const;
         
         // Wizards
         // const Wizard wizard(int index) const;
