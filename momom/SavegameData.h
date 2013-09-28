@@ -13,7 +13,6 @@
 #include <istream>
 
 #include "HeroData.h"
-#include "GeneralGameData.h"
 #include "WizardData.h"
 
 namespace momom {
@@ -27,7 +26,6 @@ namespace momom {
         ~SavegameData();
         
         HeroData::Block_t heroes[35*5];
-        GeneralGameData::Block_t general;
         WizardData::Block_t wizards[5];
         
         /*

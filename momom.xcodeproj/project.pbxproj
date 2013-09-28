@@ -50,7 +50,6 @@
 		2608944517F18F1700CEA80B /* MagicLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicLevel.h; sourceTree = "<group>"; };
 		2608944617F18F5800CEA80B /* GameDifficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDifficulty.h; sourceTree = "<group>"; };
 		2608944717F1A29B00CEA80B /* SavegameData.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SavegameData.h; sourceTree = "<group>"; };
-		2608944817F1A31800CEA80B /* GeneralGameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralGameData.h; sourceTree = "<group>"; };
 		2608944917F1A3A600CEA80B /* HeroData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroData.h; sourceTree = "<group>"; };
 		2608944B17F1BF8200CEA80B /* SavegameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SavegameData.cpp; sourceTree = "<group>"; };
 		2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDifficulty.cpp; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		2608945E17F1EE7400CEA80B /* Personality.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Personality.cpp; sourceTree = "<group>"; };
 		2608946017F1F21800CEA80B /* Objective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Objective.h; sourceTree = "<group>"; };
 		2608946117F1F27C00CEA80B /* Objective.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Objective.cpp; sourceTree = "<group>"; };
+		266DFB7317F5CFC500F7F4F6 /* SavegameDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavegameDefinitions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,6 @@
 				2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */,
 				2608944717F1A29B00CEA80B /* SavegameData.h */,
 				2608944B17F1BF8200CEA80B /* SavegameData.cpp */,
-				2608944817F1A31800CEA80B /* GeneralGameData.h */,
 				2608944917F1A3A600CEA80B /* HeroData.h */,
 				2608945317F1D78A00CEA80B /* WizardData.h */,
 				2608945417F1DD1700CEA80B /* Wizard.h */,
@@ -129,6 +128,7 @@
 				2608945E17F1EE7400CEA80B /* Personality.cpp */,
 				2608946017F1F21800CEA80B /* Objective.h */,
 				2608946117F1F27C00CEA80B /* Objective.cpp */,
+				266DFB7317F5CFC500F7F4F6 /* SavegameDefinitions.h */,
 			);
 			path = momom;
 			sourceTree = "<group>";
