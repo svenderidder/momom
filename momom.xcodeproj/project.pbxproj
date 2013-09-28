@@ -48,11 +48,9 @@
 		2608944517F18F1700CEA80B /* MagicLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicLevel.h; sourceTree = "<group>"; };
 		2608944617F18F5800CEA80B /* GameDifficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDifficulty.h; sourceTree = "<group>"; };
 		2608944717F1A29B00CEA80B /* SavegameData.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SavegameData.h; sourceTree = "<group>"; };
-		2608944917F1A3A600CEA80B /* HeroData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroData.h; sourceTree = "<group>"; };
 		2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDifficulty.cpp; sourceTree = "<group>"; };
 		2608944F17F1CDD500CEA80B /* MagicLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MagicLevel.cpp; sourceTree = "<group>"; };
 		2608945117F1CE6F00CEA80B /* LandSize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LandSize.cpp; sourceTree = "<group>"; };
-		2608945317F1D78A00CEA80B /* WizardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WizardData.h; sourceTree = "<group>"; };
 		2608945417F1DD1700CEA80B /* Wizard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wizard.h; sourceTree = "<group>"; };
 		2608945517F1DD9500CEA80B /* Wizard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wizard.cpp; sourceTree = "<group>"; };
 		2608945717F1E59D00CEA80B /* Race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Race.h; sourceTree = "<group>"; };
@@ -112,8 +110,6 @@
 				2608944617F18F5800CEA80B /* GameDifficulty.h */,
 				2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */,
 				2608944717F1A29B00CEA80B /* SavegameData.h */,
-				2608944917F1A3A600CEA80B /* HeroData.h */,
-				2608945317F1D78A00CEA80B /* WizardData.h */,
 				2608945417F1DD1700CEA80B /* Wizard.h */,
 				2608945517F1DD9500CEA80B /* Wizard.cpp */,
 				2608945717F1E59D00CEA80B /* Race.h */,

@@ -11,8 +11,6 @@
 
 #include <string>
 
-#include "WizardData.h"
-#include "SavegameRegion.h"
 #include "Race.h"
 #include "Banner.h"
 #include "Personality.h"
@@ -20,15 +18,11 @@
 
 namespace momom {
     
+    class SavegameData;
+    
     class Wizard {
     public:
-        Wizard(WizardData::Block_t* data);
-        Wizard(const Wizard& other) = default;
-        Wizard(Wizard&& other);
-        ~Wizard();
-        
-        Wizard& operator=(const Wizard& other) = default;
-        Wizard& operator=(Wizard&& other);
+        Wizard(SavegameData* data, int wizard_id);
         
         std::string name() const;
         Race homeRace() const;
@@ -37,7 +31,8 @@ namespace momom {
         Objective objective() const;
         
     private:
-        WizardData::Block_t* d;
+        SavegameData* data;
+        int wizard_id;
     
     };
 }

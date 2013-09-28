@@ -78,15 +78,9 @@ namespace momom {
         return Hero(data.get(), wizard_id, hero_id);
     }
     
-    /*
-    const Wizard Savegame::wizard(int index) const {
-        if(index < 0 || index >= nofWizards()) {
-            throw std::range_error("Wizard index out of range");
-        }
-        WizardData::Block_t* wd = &data->wizards[index];
-        return Wizard(wd);
+    const Wizard Savegame::wizard(int wizard_id) const {
+        return Wizard(data.get(), wizard_id);
     }
-    */
     
 
 }

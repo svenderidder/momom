@@ -47,7 +47,7 @@ namespace momom {
         const Hero hero(int wizard_id, int hero_id) const;
         
         // Wizards
-        // const Wizard wizard(int index) const;
+        const Wizard wizard(int wizard_id) const;
         
     private:
         std::unique_ptr<class SavegameData> data;
