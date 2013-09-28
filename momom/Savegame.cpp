@@ -22,7 +22,7 @@ namespace momom {
         
         template<typename F> const typename F::value_type& get() const {
             return *reinterpret_cast<const typename F::value_type*>(
-                static_cast<char*>(data.get_address()) + F::category::offset + F::offset);
+                static_cast<char*>(data.get_address()) + F::region::offset + F::offset);
         }
         
         ~DataInternals() {}
