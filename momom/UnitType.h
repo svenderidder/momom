@@ -198,6 +198,62 @@ namespace momom {
         TrollSettlers = 151,
         TrollWarTrolls = 152,
         TrollWarMammoths = 153,
+        
+        // Arcane units
+        MagicSpirit = 154,
+        
+        // Chaos units
+        HellHounds = 155,
+        Gargoyles = 156,
+        FireGiant = 157,
+        FireElemental = 158,
+        ChaosSpawn = 159,
+        Chimera = 160,
+        DoomBat = 161,
+        Efreet = 162,
+        Hydra = 163,
+        GreatDrake = 164,
+        
+        // Death units
+        Skeletons = 165,
+        Ghouls = 166,
+        NightStalker = 167,
+        Werewolves = 168,
+        Demon = 169,
+        Wraiths = 170,
+        ShadowDemons = 171,
+        DeathKnights = 172,
+        DemonLord = 173,
+        Zombies = 174,
+        
+        // Life units
+        Unicorns = 175,
+        GuardianSpirit = 176,
+        Angel = 177,
+        ArchAngel = 178,
+        
+        // Nature units
+        WarBears = 179,
+        Sprites = 180,
+        Cockatrices = 181,
+        Basilisk = 182,
+        GiantSpiders = 183,
+        StoneGiant = 184,
+        Colossus = 185,
+        Gorgons = 186,
+        EarthElemental = 187,
+        Behemoth = 188,
+        GreatWyrm = 189,
+        
+        // Sorcery units
+        FloatingIsland = 190,
+        PhantomBeast = 191,
+        PhantomWarriors = 192,
+        StormGiant = 193,
+        AirElemental = 194,
+        Djinn = 195,
+        SkyDrake = 196,
+        Nagas = 197
     }
 }
 
