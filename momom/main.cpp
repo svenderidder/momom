@@ -30,21 +30,29 @@ int main(int argc, const char * argv[])
     std::cout << "Turn: " << s.turn() << "\n";
     std::cout << "Active Unit: " << s.activeUnit() << "\n";
     
-    for(int w = 0; w < s.nofWizards(); ++w) {
-        for(int h = 0; h < 35; ++h) {
-            Hero hero = s.hero(w, h);
-            for(Hero::Ability a: hero.getAbilities()) {
-                std::cout << a << " ";
-            }
-            std::cout << "\n";
-        }
+//    for(int w = 0; w < s.nofWizards(); ++w) {
+//        for(int h = 0; h < 35; ++h) {
+//            Hero hero = s.hero(w, h);
+//            for(Hero::Ability a: hero.getAbilities()) {
+//                std::cout << a << " ";
+//            }
+//            std::cout << "\n";
+//        }
+//    }
+//    
+//    for(int i = 0; i < s.nofWizards(); ++i) {
+//        Wizard w = s.wizard(i);
+//        std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
+//            "/" << w.objective() << ")\n";
+//        
+//    }
+    
+    for(int u = 0; u < s.nofUnits(); ++u) {
+        Unit unit = s.unit(u);
+        std::cout << u << ": " << unit.type() << "(" << unit.owner() << ")\n";
     }
     
-    for(int i = 0; i < s.nofWizards(); ++i) {
-        Wizard w = s.wizard(i);
-        std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
-            "/" << w.objective() << ")\n";
-        
-    }
+    s.unit(0).type(1);
+    s.unit(5).type(2);
     
 }

@@ -82,5 +82,9 @@ namespace momom {
         return Wizard(data.get(), wizard_id);
     }
     
+    Unit Savegame::unit(int unit_id) {
+        return Unit(data.get(), unit_id);
+    }
+    
 
 }

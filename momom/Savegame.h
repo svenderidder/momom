@@ -15,6 +15,7 @@
 #include "SavegameData.h"
 #include "Hero.h"
 #include "Wizard.h"
+#include "Unit.h"
 #include "GameDifficulty.h"
 #include "LandSize.h"
 #include "MagicLevel.h"
@@ -48,6 +49,8 @@ namespace momom {
         
         // Wizards
         const Wizard wizard(int wizard_id) const;
+        
+        Unit unit(int unit_id);
         
     private:
         std::unique_ptr<class SavegameData> data;

@@ -117,7 +117,7 @@ namespace momom {
     class SavegameData {
     public:
         SavegameData(const char* filename)
-        : mapping(filename, boost::interprocess::read_only)
+        : mapping(filename, boost::interprocess::read_write)
         , data(mapping, mapping.get_mode()) {}
         
         template<typename F> const typename F::value_type& get() const {
@@ -129,6 +129,13 @@ namespace momom {
         template<typename F> const typename F::value_type& get(int index) const {
             using R = typename F::region;
             return *reinterpret_cast<const typename F::value_type*>(
+                static_cast<char*>(data.get_address())
+                    + R::offset + index * R::size + F::offset);
+        }
+        
+        template<typename F> typename F::value_type& get(int index) {
+            using R = typename F::region;
+            return *reinterpret_cast<typename F::value_type*>(
                 static_cast<char*>(data.get_address())
                     + R::offset + index * R::size + F::offset);
         }

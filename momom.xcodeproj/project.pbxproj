@@ -19,6 +19,7 @@
 		2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608945E17F1EE7400CEA80B /* Personality.cpp */; };
 		2608946217F1F27C00CEA80B /* Objective.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608946117F1F27C00CEA80B /* Objective.cpp */; };
 		266DFB7517F73F5300F7F4F6 /* Savegame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB7417F73F5300F7F4F6 /* Savegame.cpp */; };
+		266DFB7817F8351900F7F4F6 /* Unit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB7717F8351900F7F4F6 /* Unit.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,9 @@
 		2608946017F1F21800CEA80B /* Objective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Objective.h; sourceTree = "<group>"; };
 		2608946117F1F27C00CEA80B /* Objective.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Objective.cpp; sourceTree = "<group>"; };
 		266DFB7417F73F5300F7F4F6 /* Savegame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Savegame.cpp; sourceTree = "<group>"; };
+		266DFB7617F833DA00F7F4F6 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		266DFB7717F8351900F7F4F6 /* Unit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Unit.cpp; sourceTree = "<group>"; };
+		266DFB7917F83C3B00F7F4F6 /* UnitType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitType.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,9 @@
 				2608945E17F1EE7400CEA80B /* Personality.cpp */,
 				2608946017F1F21800CEA80B /* Objective.h */,
 				2608946117F1F27C00CEA80B /* Objective.cpp */,
+				266DFB7617F833DA00F7F4F6 /* Unit.h */,
+				266DFB7717F8351900F7F4F6 /* Unit.cpp */,
+				266DFB7917F83C3B00F7F4F6 /* UnitType.h */,
 			);
 			path = momom;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 				2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */,
 				2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */,
 				2608945C17F1E97B00CEA80B /* Banner.cpp in Sources */,
+				266DFB7817F8351900F7F4F6 /* Unit.cpp in Sources */,
 				2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */,
 				2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */,
 			);
