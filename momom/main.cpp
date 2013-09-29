@@ -12,6 +12,7 @@
 #include "Savegame.h"
 #include "Wizard.h"
 #include "Hero.h"
+#include "UnitType.h"
 
 int main(int argc, const char * argv[])
 {
@@ -49,10 +50,10 @@ int main(int argc, const char * argv[])
     
     for(int u = 0; u < s.nofUnits(); ++u) {
         Unit unit = s.unit(u);
-        std::cout << u << ": " << unit.type() << "(" << unit.owner() << ")\n";
+        std::cout << u << ": " << (int)unit.type() << "(" << unit.owner() << ")\n";
     }
     
-    s.unit(0).type(1);
-    s.unit(5).type(2);
+    s.unit(0).type(UnitType::SkyDrake);
+    s.unit(5).type(UnitType::GreatWyrm);
     
 }
