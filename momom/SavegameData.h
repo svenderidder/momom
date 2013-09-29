@@ -95,7 +95,7 @@ namespace momom {
     struct UnitP: F<UnitRegion, uint8_t, 0x0002> {};
     struct UnitOwner: F<UnitRegion, uint8_t, 0x0003> {};
     struct UnitTotalMoves: F<UnitRegion, uint8_t, 0x0004> {};
-    struct UnitType: F<UnitRegion, uint8_t, 0x0005> {};
+    struct F_UnitType: F<UnitRegion, uint8_t, 0x0005> {};
     struct UnitHeroSlot: F<UnitRegion, uint8_t, 0x0006> {};
     struct UnitMoved: F<UnitRegion, uint8_t, 0x0007> {};
     struct UnitRemainingMoves: F<UnitRegion, uint8_t, 0x0008> {};

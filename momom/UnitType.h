@@ -9,9 +9,11 @@
 #ifndef momom_UnitType_h
 #define momom_UnitType_h
 
+#include <ostream>
+
 namespace momom {
     
-    enum class {
+    enum class UnitType {
         
         // Heroes
         HeroDwarf = 0,
@@ -107,7 +109,7 @@ namespace momom {
         DwarvenEngineers = 78,
         DwarvenHammerhands = 79,
         DwarvenSteamCannon = 80,
-        DwarvenGolem = 81
+        DwarvenGolem = 81,
         DwarvenSettlers = 82,
         
         // Gnoll units
@@ -203,7 +205,7 @@ namespace momom {
         MagicSpirit = 154,
         
         // Chaos units
-        HellHounds = 155,
+        Hellhounds = 155,
         Gargoyles = 156,
         FireGiant = 157,
         FireElemental = 158,
@@ -254,7 +256,12 @@ namespace momom {
         Djinn = 195,
         SkyDrake = 196,
         Nagas = 197
-    }
+    };
+    
+    const char* toString(UnitType);
+    
+    std::ostream& operator<<(std::ostream&, UnitType);
+    
 }
 
 #endif

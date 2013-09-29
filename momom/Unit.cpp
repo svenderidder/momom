@@ -21,14 +21,14 @@ namespace momom {
         return static_cast<int>(v);
     }
     
-    int Unit::type() const {
-        using f = UnitType;
+    UnitType Unit::type() const {
+        using f = F_UnitType;
         f::value_type v = data->get<f>(unit_id);
-        return static_cast<int>(v);
+        return static_cast<UnitType>(v);
     }
     
-    void Unit::type(int type) {
-        using f = UnitType;
+    void Unit::type(UnitType type) {
+        using f = F_UnitType;
         f::value_type& v = data->get<f>(unit_id);
         v = static_cast<typename f::value_type>(type);
     }

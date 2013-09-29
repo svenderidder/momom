@@ -9,6 +9,8 @@
 #ifndef momom_Unit_h
 #define momom_Unit_h
 
+#include "UnitType.h"
+
 namespace momom {
     
     class SavegameData;
@@ -18,8 +20,8 @@ namespace momom {
         Unit(SavegameData* data, int unit_id);
         
         int owner() const;
-        int type() const;
-        void type(int type);
+        UnitType type() const;
+        void type(UnitType type);
         
     private:
         SavegameData* data;

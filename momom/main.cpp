@@ -50,7 +50,7 @@ int main(int argc, const char * argv[])
     
     for(int u = 0; u < s.nofUnits(); ++u) {
         Unit unit = s.unit(u);
-        std::cout << u << ": " << (int)unit.type() << "(" << unit.owner() << ")\n";
+        std::cout << u << ": " << unit.type() << "(" << unit.owner() << ")\n";
     }
     
     s.unit(0).type(UnitType::SkyDrake);
