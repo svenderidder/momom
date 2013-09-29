@@ -10,6 +10,7 @@
 #define momom_Unit_h
 
 #include "UnitType.h"
+#include "Location.h"
 
 namespace momom {
     
@@ -22,6 +23,8 @@ namespace momom {
         int owner() const;
         UnitType type() const;
         void type(UnitType type);
+        
+        Location location() const;
         
     private:
         SavegameData* data;

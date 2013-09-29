@@ -21,6 +21,8 @@
 		266DFB7517F73F5300F7F4F6 /* Savegame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB7417F73F5300F7F4F6 /* Savegame.cpp */; };
 		266DFB7817F8351900F7F4F6 /* Unit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB7717F8351900F7F4F6 /* Unit.cpp */; };
 		266DFB7B17F8674400F7F4F6 /* UnitType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB7A17F8674400F7F4F6 /* UnitType.cpp */; };
+		266DFB7F17F86E7200F7F4F6 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB7E17F86E7200F7F4F6 /* Plane.cpp */; };
+		266DFB8317F8713700F7F4F6 /* Location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB8217F8713700F7F4F6 /* Location.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +70,10 @@
 		266DFB7717F8351900F7F4F6 /* Unit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Unit.cpp; sourceTree = "<group>"; };
 		266DFB7917F83C3B00F7F4F6 /* UnitType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitType.h; sourceTree = "<group>"; };
 		266DFB7A17F8674400F7F4F6 /* UnitType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnitType.cpp; sourceTree = "<group>"; };
+		266DFB7C17F86CB600F7F4F6 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		266DFB7D17F86E2600F7F4F6 /* Plane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
+		266DFB7E17F86E7200F7F4F6 /* Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plane.cpp; sourceTree = "<group>"; };
+		266DFB8217F8713700F7F4F6 /* Location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Location.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,10 @@
 				266DFB7717F8351900F7F4F6 /* Unit.cpp */,
 				266DFB7917F83C3B00F7F4F6 /* UnitType.h */,
 				266DFB7A17F8674400F7F4F6 /* UnitType.cpp */,
+				266DFB7C17F86CB600F7F4F6 /* Location.h */,
+				266DFB8217F8713700F7F4F6 /* Location.cpp */,
+				266DFB7D17F86E2600F7F4F6 /* Plane.h */,
+				266DFB7E17F86E7200F7F4F6 /* Plane.cpp */,
 			);
 			path = momom;
 			sourceTree = "<group>";
@@ -197,6 +207,7 @@
 				2608945917F1E66000CEA80B /* Race.cpp in Sources */,
 				2608946217F1F27C00CEA80B /* Objective.cpp in Sources */,
 				2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */,
+				266DFB8317F8713700F7F4F6 /* Location.cpp in Sources */,
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
 				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
 				2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */,
@@ -205,6 +216,7 @@
 				266DFB7817F8351900F7F4F6 /* Unit.cpp in Sources */,
 				2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */,
 				266DFB7B17F8674400F7F4F6 /* UnitType.cpp in Sources */,
+				266DFB7F17F86E7200F7F4F6 /* Plane.cpp in Sources */,
 				2608943E17F0A5FE00CEA80B /* Hero.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

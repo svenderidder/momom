@@ -90,9 +90,7 @@ namespace momom {
     struct PersonalSchool: F<WizardRegion, uint16_t, 0x04C4> {};
 
     struct UnitRegion: Region<0xB734, 32, 1000> {};
-    struct UnitX: F<UnitRegion, uint8_t, 0x0000> {};
-    struct UnitY: F<UnitRegion, uint8_t, 0x0001> {};
-    struct UnitP: F<UnitRegion, uint8_t, 0x0002> {};
+    struct UnitLocation: F<UnitRegion, uint8_t[3], 0x0000> {};
     struct UnitOwner: F<UnitRegion, uint8_t, 0x0003> {};
     struct UnitTotalMoves: F<UnitRegion, uint8_t, 0x0004> {};
     struct F_UnitType: F<UnitRegion, uint8_t, 0x0005> {};

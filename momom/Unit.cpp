@@ -33,4 +33,10 @@ namespace momom {
         v = static_cast<typename f::value_type>(type);
     }
     
+    Location Unit::location() const {
+        using f = UnitLocation;
+        f::value_type& v = data->get<f>(unit_id);
+        return Location(v[0], v[1], static_cast<Plane>(v[2]));
+    }
+    
 }
