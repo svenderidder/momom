@@ -12,7 +12,9 @@
 #include <ostream>
 
 namespace momom {
-    
+
+    constexpr int TotalGlobalEnchantments = 24;
+
     enum class GlobalEnchantment {
         EternalNight = 0,
         EvilOmens = 1,
@@ -43,6 +45,34 @@ namespace momom {
     const char* toString(GlobalEnchantment);
     
     std::ostream& operator<<(std::ostream&, GlobalEnchantment);
+    
+    // Listing of all global enchantments so we can iterate over the enumeration.
+    constexpr GlobalEnchantment AllGlobalEnchantments[] = {
+        GlobalEnchantment::EternalNight,
+        GlobalEnchantment::EvilOmens,
+        GlobalEnchantment::ZombieMastery,
+        GlobalEnchantment::AuraOfMajesty,
+        GlobalEnchantment::WindMastery,
+        GlobalEnchantment::SuppressMagic,
+        GlobalEnchantment::TimeStop,
+        GlobalEnchantment::NatureAwareness,
+        GlobalEnchantment::NaturesWrath,
+        GlobalEnchantment::HerbMastery,
+        GlobalEnchantment::ChaosSurge,
+        GlobalEnchantment::DoomMastery,
+        GlobalEnchantment::GreatWasting,
+        GlobalEnchantment::MeteorStorm,
+        GlobalEnchantment::Armageddon,
+        GlobalEnchantment::Tranquility,
+        GlobalEnchantment::LifeForce,
+        GlobalEnchantment::Crusade,
+        GlobalEnchantment::JustCause,
+        GlobalEnchantment::HolyArms,
+        GlobalEnchantment::PlanarSeal,
+        GlobalEnchantment::CharmOfLife,
+        GlobalEnchantment::DetectMagic,
+        GlobalEnchantment::Awareness,
+    };
     
 }
 

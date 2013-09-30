@@ -7,6 +7,7 @@
 //
 
 #include <algorithm>
+#include <boost/iterator/filter_iterator.hpp>
 #include <cstring>
 
 #include "Wizard.h"
@@ -21,7 +22,6 @@ namespace momom {
     static constexpr int TotalTomeRealms = 5;
     static constexpr int MaxTomesPerRealm = 13;
     static constexpr int TotalRetorts = 18;
-    static constexpr int TotalGlobalEnchantments = 24;
     static constexpr std::size_t MaxNameSize = 20; // 20 characters, but including '\0'.
 
     struct WizardRegion: Region<0x09E8, 1224, MaxWizards> {};
@@ -151,12 +151,12 @@ namespace momom {
             get<WizardRetorts>()[r] = v ? 0x01 : 0x00;
         }
         
-        bool enchantment(int e) const {
+        bool globalEnchantment(int e) const {
             assert(0 <= e && e < TotalGlobalEnchantments);
             return get<WizardGlobalEnchantments>()[e] != 0x00;
         }
         
-        void enchantment(int e, bool v) {
+        void globalEnchantment(int e, bool v) {
             assert(0 <= e && e < TotalGlobalEnchantments);
             get<WizardGlobalEnchantments>()[e] = v ? 0x01 : 0x00;
         }
@@ -232,12 +232,21 @@ namespace momom {
         wi->retort(static_cast<int>(r), v);
     }
     
+    std::vector<GlobalEnchantment> Wizard::globalEnchantments() const {
+        auto result = std::vector<GlobalEnchantment>();
+        std::copy_if(
+            std::begin(AllGlobalEnchantments), std::end(AllGlobalEnchantments),
+            std::back_inserter(result),
+            [this](GlobalEnchantment e) { return globalEnchantment(e); });
+        return std::move(result);
+    }
+    
     bool Wizard::globalEnchantment(GlobalEnchantment e) const {
-        return wi->enchantment(static_cast<int>(e));
+        return wi->globalEnchantment(static_cast<int>(e));
     }
     
     void Wizard::globalEnchantment(GlobalEnchantment e, bool v) {
-        wi->enchantment(static_cast<int>(e), v);
+        wi->globalEnchantment(static_cast<int>(e), v);
     }
 
 }

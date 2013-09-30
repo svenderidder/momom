@@ -69,4 +69,8 @@ int main(int argc, const char * argv[])
     me.name("Slartibartfast");
     me.globalEnchantment(GlobalEnchantment::Armageddon, true);
     
+    for(GlobalEnchantment e: me.globalEnchantments()) {
+        std::cout << e << "\n";
+    }
+    
 }
