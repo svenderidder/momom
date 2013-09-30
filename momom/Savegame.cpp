@@ -83,7 +83,7 @@ namespace momom {
         if(wizard_id < 0 || wizard_id >= nofWizards()) {
             throw InvalidWizardIDException(wizard_id);
         }
-        return Wizard(data.get(), wizard_id);
+        return std::move(Wizard(data.get(), wizard_id));
     }
     
     Unit Savegame::unit(int unit_id) {

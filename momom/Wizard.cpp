@@ -12,6 +12,13 @@
 #include "SavegameData.h"
 
 namespace momom {
+    
+    static constexpr int MaxFame = 30000;
+    static constexpr int MaxGold = 30000;
+    static constexpr int MaxMana = 30000;
+    static constexpr int TotalTomeRealms = 5;
+    static constexpr int MaxTomesPerRealm = 13;
+    static constexpr int TotalRetorts = 18;
 
     struct WizardRegion: Region<0x09E8, 1224, 5> {};
     struct Portrait: F<WizardRegion, uint8_t, 0x0000> {};
@@ -38,8 +45,8 @@ namespace momom {
     struct TurnUnusedMana: F<WizardRegion, uint16_t, 0x0054> {};
     struct TurnNominalMana: F<WizardRegion, uint16_t, 0x0056> {};
     struct TaxRate: F<WizardRegion, uint16_t, 0x0058> {};
-    struct WizardTomes: F<WizardRegion, uint16_t[5], 0x005A> {};
-    struct WizardRetorts: F<WizardRegion, uint8_t[18], 0x0064> {};
+    struct WizardTomes: F<WizardRegion, uint16_t[TotalTomeRealms], 0x005A> {};
+    struct WizardRetorts: F<WizardRegion, uint8_t[TotalRetorts], 0x0064> {};
     struct HiredHeroData: F<WizardRegion, char[28*6], 0x0066> {};
     struct BankedItems: F<WizardRegion, uint16_t[4], 0x0120> {};
     struct WizardsContacted: F<WizardRegion, uint8_t[6], 0x0128> {};
@@ -80,26 +87,60 @@ namespace momom {
         void personality(int p) { get<WizardPersonality>() = p; }
         int objective() const { return get<WizardObjective>(); }
         void objective(int o) { get<WizardObjective>() = o; }
-        int fame() const { return get<WizardFame>(); }
-        void fame(int f) { get<WizardFame>() = f; }
-        int gold() const { return get<WizardGold>(); }
-        void gold(int g) { get<WizardGold>() = g; }
-        int mana() const { return get<WizardMana>(); }
-        void mana(int m) { get<WizardMana>() = m; }
-        int tomes(int s) const { return get<WizardTomes>()[s]; }
-        void tomes(int s, int n) { get<WizardTomes>()[s] = n; }
-        bool retort(int r) const { return get<WizardRetorts>()[r] != 0; }
-        void retort(int r, bool v) { get<WizardRetorts>()[r] = v ? 1 : 0; }
+        
+        int fame() const {
+            return get<WizardFame>();
+        }
+        
+        void fame(int f) {
+            assert(0 <= f && f <= MaxFame);
+            get<WizardFame>() = f;
+        }
+        
+        int gold() const {
+            return get<WizardGold>();
+        }
+        
+        void gold(int g) {
+            assert(0 <= g && g <= MaxGold);
+            get<WizardGold>() = g;
+        }
+        
+        int mana() const {
+            return get<WizardMana>();
+        }
+        
+        void mana(int m) {
+            assert(0 <= m && m <= MaxMana);
+            get<WizardMana>() = m;
+        }
+        
+        int tomes(int s) const {
+            assert(0 <= s && s < TotalTomeRealms);
+            return get<WizardTomes>()[s];
+        }
+        
+        void tomes(int s, int n) {
+            assert(0 <= s && s < TotalTomeRealms);
+            assert(0 <= n && n <= MaxTomesPerRealm);
+            get<WizardTomes>()[s] = n;
+        }
+        
+        bool retort(int r) const {
+            assert(0 <= r && r < TotalRetorts);
+            return get<WizardRetorts>()[r] != 0;
+        }
+        
+        void retort(int r, bool v) {
+            assert(0 <= r && r < TotalRetorts);
+            get<WizardRetorts>()[r] = v ? 0x01 : 0x00;
+        }
         
         SavegameData* data;
         int wizard_id;
     };
 
     static constexpr std::size_t MaxNameSize = 19; // 20 characters, but including '\0'.
-    static constexpr int MaxFame = 30000;
-    static constexpr int MaxGold = 30000;
-    static constexpr int MaxMana = 30000;
-    static constexpr int MaxTomesPerSchool = 13;
 
     Wizard::Wizard(SavegameData* data, int wizard_id)
     : wi{new WizardInternals(data, wizard_id)} {}
@@ -149,10 +190,10 @@ namespace momom {
     }
     
     void Wizard::tomes(MagicSchool s, int n) {
-        if(s >= MagicSchool::Arcane) {
+        if(s == MagicSchool::Arcane) {
             throw InvalidTomeSchoolException(static_cast<int>(s));
         }
-        wi->tomes(static_cast<int>(s), std::max(0, std::min(MaxTomesPerSchool, n)));
+        wi->tomes(static_cast<int>(s), std::max(0, std::min(MaxTomesPerRealm, n)));
     }
     
     bool Wizard::retort(Retort r) const {
