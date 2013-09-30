@@ -21,6 +21,7 @@ namespace momom {
     static constexpr int TotalTomeRealms = 5;
     static constexpr int MaxTomesPerRealm = 13;
     static constexpr int TotalRetorts = 18;
+    static constexpr int TotalGlobalEnchantments = 24;
     static constexpr std::size_t MaxNameSize = 20; // 20 characters, but including '\0'.
 
     struct WizardRegion: Region<0x09E8, 1224, MaxWizards> {};
@@ -67,7 +68,7 @@ namespace momom {
     struct AstStrength: F<WizardRegion, uint16_t, 0x035E> {};
     struct AstPower: F<WizardRegion, uint16_t, 0x0360> {};
     struct Historian: F<WizardRegion, uint8_t[288], 0x0362> {};
-    struct Enchantments: F<WizardRegion, uint8_t[24], 0x0482> {};
+    struct WizardGlobalEnchantments: F<WizardRegion, uint8_t[TotalGlobalEnchantments], 0x0482> {};
     struct PersonalSchool: F<WizardRegion, uint16_t, 0x04C4> {};
 
     struct WizardInternals {
@@ -142,12 +143,22 @@ namespace momom {
         
         bool retort(int r) const {
             assert(0 <= r && r < TotalRetorts);
-            return get<WizardRetorts>()[r] != 0;
+            return get<WizardRetorts>()[r] != 0x00;
         }
         
         void retort(int r, bool v) {
             assert(0 <= r && r < TotalRetorts);
             get<WizardRetorts>()[r] = v ? 0x01 : 0x00;
+        }
+        
+        bool enchantment(int e) const {
+            assert(0 <= e && e < TotalGlobalEnchantments);
+            return get<WizardGlobalEnchantments>()[e] != 0x00;
+        }
+        
+        void enchantment(int e, bool v) {
+            assert(0 <= e && e < TotalGlobalEnchantments);
+            get<WizardGlobalEnchantments>()[e] = v ? 0x01 : 0x00;
         }
         
         SavegameData* const data;
@@ -219,6 +230,14 @@ namespace momom {
     
     void Wizard::retort(Retort r, bool v) {
         wi->retort(static_cast<int>(r), v);
+    }
+    
+    bool Wizard::globalEnchantment(GlobalEnchantment e) const {
+        return wi->enchantment(static_cast<int>(e));
+    }
+    
+    void Wizard::globalEnchantment(GlobalEnchantment e, bool v) {
+        wi->enchantment(static_cast<int>(e), v);
     }
 
 }

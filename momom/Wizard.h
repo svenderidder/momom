@@ -18,6 +18,7 @@
 #include "Objective.h"
 #include "MagicSchool.h"
 #include "Retort.h"
+#include "GlobalEnchantment.h"
 
 namespace momom {
     
@@ -71,6 +72,9 @@ namespace momom {
         
         bool retort(Retort) const;
         void retort(Retort, bool);
+        
+        bool globalEnchantment(GlobalEnchantment) const;
+        void globalEnchantment(GlobalEnchantment, bool);
         
     private:
         std::unique_ptr<class WizardInternals> wi;
