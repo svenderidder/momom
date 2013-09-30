@@ -30,8 +30,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, Race r) {
-        os << toString(r);
-        return os;
+        return os << toString(r);
     }
     
 }

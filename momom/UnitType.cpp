@@ -214,8 +214,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, UnitType t) {
-        os << toString(t);
-        return os;
+        return os << toString(t);
     }
     
 }

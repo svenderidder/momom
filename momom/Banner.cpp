@@ -21,8 +21,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, Banner b) {
-        os << toString(b);
-        return os;
+        return os << toString(b);
     }
     
 }

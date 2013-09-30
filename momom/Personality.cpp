@@ -22,8 +22,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, Personality p) {
-        os << toString(p);
-        return os;
+        return os << toString(p);
     }
     
 }

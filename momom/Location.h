@@ -26,33 +26,25 @@ namespace momom {
     
     class Location {
     public:
-        Location(int x, int y, Plane plane)
-        : cx{x}, cy{y}, cplane{plane} {
-            const int w = 60;
-            const int h = 40;
-            if(x < 0 || x >= w) throw CoordinateOutOfRangeException('x', x);
-            if(y < 0 || y >= h) throw CoordinateOutOfRangeException('y', y);
-        }
+        Location(int x, int y, Plane plane);
         
-        int x() const { return cx; }
-        int y() const { return cy; }
-        Plane plane() const { return cplane; }
+        int x() const;
+        int y() const;
+        Plane plane() const;
         
-        Location north(int steps) const { return Location(cx, cy - steps, cplane); }
-        Location south(int steps) const { return north(-steps); }
-        Location west(int steps) const { return Location(cx - steps, cy, cplane); }
-        Location east(int steps) const { return west(-steps); }
-        Location shift() const {
-            return Location(cx, cy, static_cast<Plane>(1 - static_cast<int>(cplane))); }
+        Location north(int steps = 1) const;
+        Location south(int steps = 1) const;
+        Location west(int steps = 1) const;
+        Location east(int steps = 1) const;
+        Location shift() const;
         
     private:
         int cx, cy;
         Plane cplane;
     };
     
-    bool isValidLocation(const Location&);
-    
     std::ostream& operator<<(std::ostream&, const Location&);
+
 }
 
 #endif

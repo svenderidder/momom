@@ -18,8 +18,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, Plane p) {
-        os << toString(p);
-        return os;
+        return os << toString(p);
     }
     
 }

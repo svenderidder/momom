@@ -21,8 +21,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, GameDifficulty d) {
-        os << toString(d);
-        return os;
+        return os << toString(d);
     }
     
 }

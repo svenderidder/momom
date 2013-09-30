@@ -19,8 +19,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, MagicLevel l) {
-        os << toString(l);
-        return os;
+        return os << toString(l);
     }
    
 }

@@ -21,8 +21,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, Objective o) {
-        os << toString(o);
-        return os;
+        return os << toString(o);
     }
 
 }

@@ -9,17 +9,39 @@
 #include "Location.h"
 
 namespace momom {
-    
-    bool isValidLocation(const Location& l) {
+
+    Location::Location(int x, int y, Plane plane)
+    : cx{x}
+    , cy{y}
+    , cplane{plane} {
         const int w = 60;
         const int h = 40;
-        return 0 <= l.x() && l.x() < w
-            && 0 <= l.y() && l.y() < h;
+        if(x < 0 || x >= w) throw CoordinateOutOfRangeException('x', x);
+        if(y < 0 || y >= h) throw CoordinateOutOfRangeException('y', y);
     }
     
+    int Location::x() const { return cx; }
+    int Location::y() const { return cy; }
+    Plane Location::plane() const { return cplane; }
+    
+    Location Location::north(int steps) const {
+        return Location(cx, cy - steps, cplane);
+    }
+    Location Location::south(int steps) const {
+        return north(-steps);
+    }
+    Location Location::west(int steps) const {
+        return Location(cx - steps, cy, cplane);
+    }
+    Location Location::east(int steps) const {
+        return west(-steps);
+    }
+    Location Location::shift() const {
+        return Location(cx, cy, static_cast<Plane>(1 - static_cast<int>(cplane)));
+    }
+
     std::ostream& operator<<(std::ostream& os, const Location& l) {
-        os << l.plane() << ":" << l.x() << "," << l.y() << "\n";
-        return os;
+        return os << l.plane() << ":" << l.x() << "," << l.y();
     }
 
 }

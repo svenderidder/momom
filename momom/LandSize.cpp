@@ -19,8 +19,7 @@ namespace momom {
     }
     
     std::ostream& operator<<(std::ostream& os, LandSize s) {
-        os << toString(s);
-        return os;
+        return os << toString(s);
     }
     
 }
