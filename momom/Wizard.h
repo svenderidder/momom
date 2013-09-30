@@ -17,6 +17,7 @@
 #include "Personality.h"
 #include "Objective.h"
 #include "MagicSchool.h"
+#include "Retort.h"
 
 namespace momom {
     
@@ -64,6 +65,9 @@ namespace momom {
         int tomes() const;
         int tomes(MagicSchool) const;
         void tomes(MagicSchool, int);
+        
+        bool retort(Retort) const;
+        void retort(Retort, bool);
         
     private:
         std::unique_ptr<class WizardInternals> wi;

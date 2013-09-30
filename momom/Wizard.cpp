@@ -88,6 +88,8 @@ namespace momom {
         void mana(int m) { get<WizardMana>() = m; }
         int tomes(int s) const { return get<WizardTomes>()[s]; }
         void tomes(int s, int n) { get<WizardTomes>()[s] = n; }
+        bool retort(int r) const { return get<WizardRetorts>()[r] != 0; }
+        void retort(int r, bool v) { get<WizardRetorts>()[r] = v ? 1 : 0; }
         
         SavegameData* data;
         int wizard_id;
@@ -151,6 +153,14 @@ namespace momom {
             throw InvalidTomeSchoolException(static_cast<int>(s));
         }
         wi->tomes(static_cast<int>(s), std::max(0, std::min(MaxTomesPerSchool, n)));
+    }
+    
+    bool Wizard::retort(Retort r) const {
+        return wi->retort(static_cast<int>(r));
+    }
+    
+    void Wizard::retort(Retort r, bool v) {
+        wi->retort(static_cast<int>(r), v);
     }
 
 }

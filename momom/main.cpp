@@ -65,5 +65,6 @@ int main(int argc, const char * argv[])
     me.tomes(MagicSchool::Life, 13);
     me.tomes(MagicSchool::Death, 13);
     me.tomes(MagicSchool::Nature, 13);
+    me.retort(Retort::Warlord, true);
     
 }
