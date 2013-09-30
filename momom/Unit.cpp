@@ -15,10 +15,10 @@ namespace momom {
     : data{data}
     , unit_id{unit_id} {}
     
-    int Unit::owner() const {
+    WizardID Unit::owner() const {
         using f = UnitOwner;
         f::value_type v = data->get<f>(unit_id);
-        return static_cast<int>(v);
+        return static_cast<WizardID>(v);
     }
     
     UnitType Unit::type() const {

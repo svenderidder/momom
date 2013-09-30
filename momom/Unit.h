@@ -9,6 +9,7 @@
 #ifndef momom_Unit_h
 #define momom_Unit_h
 
+#include "WizardID.h"
 #include "UnitType.h"
 #include "Location.h"
 
@@ -20,7 +21,7 @@ namespace momom {
     public:
         Unit(SavegameData* data, int unit_id);
         
-        int owner() const;
+        WizardID owner() const;
         UnitType type() const;
         void type(UnitType type);
         
