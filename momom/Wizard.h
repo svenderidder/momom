@@ -28,8 +28,6 @@ namespace momom {
     
     class Wizard {
     public:
-        static constexpr std::size_t MaxNameSize = 19; // 20 characters, but including '\0'.
-        
         Wizard(class SavegameData* data, int wizard_id);
         Wizard(Wizard&& moved);
         ~Wizard();
@@ -45,6 +43,15 @@ namespace momom {
         
         Objective objective() const;
         void objective(Objective);
+        
+        int fame() const;
+        void fame(int);
+        
+        int gold() const;
+        void gold(int);
+        
+        int mana() const;
+        void mana(int);
         
     private:
         std::unique_ptr<class WizardInternals> wi;

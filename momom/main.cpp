@@ -43,8 +43,8 @@ int main(int argc, const char * argv[])
 //    
     for(int i = 0; i < s.nofWizards(); ++i) {
         Wizard w = s.wizard(static_cast<WizardID>(i));
-        w.personality(Personality::Peaceful);
-        w.objective(Objective::Perfectionist);
+//        w.personality(Personality::Peaceful);
+//        w.objective(Objective::Perfectionist);
         std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
             "/" << w.objective() << ")\n";
         
@@ -56,7 +56,9 @@ int main(int argc, const char * argv[])
             << " " << unit.location() << ")\n";
     }
     
-    s.unit(0).type(UnitType::SkyDrake);
-    s.unit(5).type(UnitType::GreatWyrm);
+    Wizard me = s.wizard(WizardID::Player);
+    me.gold(30000);
+    me.mana(30000);
+    me.fame(30000);
     
 }
