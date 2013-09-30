@@ -14,6 +14,7 @@
 
 #include "SavegameData.h"
 #include "Hero.h"
+#include "WizardID.h"
 #include "Wizard.h"
 #include "Unit.h"
 #include "GameDifficulty.h"
@@ -48,7 +49,7 @@ namespace momom {
         const Hero hero(int wizard_id, int hero_id) const;
         
         // Wizards
-        const Wizard wizard(int wizard_id) const;
+        Wizard wizard(WizardID id);
         
         Unit unit(int unit_id);
         

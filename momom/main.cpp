@@ -41,12 +41,12 @@ int main(int argc, const char * argv[])
 //        }
 //    }
 //    
-//    for(int i = 0; i < s.nofWizards(); ++i) {
-//        Wizard w = s.wizard(i);
-//        std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
-//            "/" << w.objective() << ")\n";
-//        
-//    }
+    for(int i = 0; i < s.nofWizards(); ++i) {
+        Wizard w = s.wizard(static_cast<WizardID>(i));
+        std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
+            "/" << w.objective() << ")\n";
+        
+    }
     
     for(int u = 0; u < s.nofUnits(); ++u) {
         Unit unit = s.unit(u);

@@ -78,7 +78,11 @@ namespace momom {
         return Hero(data.get(), wizard_id, hero_id);
     }
     
-    const Wizard Savegame::wizard(int wizard_id) const {
+    Wizard Savegame::wizard(WizardID id) {
+        int wizard_id = static_cast<int>(id);
+        if(wizard_id < 0 || wizard_id >= nofWizards()) {
+            throw InvalidWizardIDException(wizard_id);
+        }
         return Wizard(data.get(), wizard_id);
     }
     
