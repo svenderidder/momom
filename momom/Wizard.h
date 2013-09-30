@@ -16,12 +16,20 @@
 #include "Banner.h"
 #include "Personality.h"
 #include "Objective.h"
+#include "MagicSchool.h"
 
 namespace momom {
     
     struct InvalidWizardIDException: virtual std::logic_error {
         InvalidWizardIDException(int id)
         : std::logic_error("Invalid wizard ID")
+        , id{id} {}
+        int id;
+    };
+    
+    struct InvalidTomeSchoolException: virtual std::logic_error {
+        InvalidTomeSchoolException(int id)
+        : std::logic_error("Invalid magic school for tome")
         , id{id} {}
         int id;
     };
@@ -52,6 +60,10 @@ namespace momom {
         
         int mana() const;
         void mana(int);
+        
+        int tomes() const;
+        int tomes(MagicSchool) const;
+        void tomes(MagicSchool, int);
         
     private:
         std::unique_ptr<class WizardInternals> wi;

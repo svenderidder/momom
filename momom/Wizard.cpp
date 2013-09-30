@@ -38,8 +38,8 @@ namespace momom {
     struct TurnUnusedMana: F<WizardRegion, uint16_t, 0x0054> {};
     struct TurnNominalMana: F<WizardRegion, uint16_t, 0x0056> {};
     struct TaxRate: F<WizardRegion, uint16_t, 0x0058> {};
-    struct SpellBooks: F<WizardRegion, uint16_t[5], 0x005A> {};
-    struct Retorts: F<WizardRegion, uint8_t[18], 0x0064> {};
+    struct WizardTomes: F<WizardRegion, uint16_t[5], 0x005A> {};
+    struct WizardRetorts: F<WizardRegion, uint8_t[18], 0x0064> {};
     struct HiredHeroData: F<WizardRegion, char[28*6], 0x0066> {};
     struct BankedItems: F<WizardRegion, uint16_t[4], 0x0120> {};
     struct WizardsContacted: F<WizardRegion, uint8_t[6], 0x0128> {};
@@ -86,6 +86,8 @@ namespace momom {
         void gold(int g) { get<WizardGold>() = g; }
         int mana() const { return get<WizardMana>(); }
         void mana(int m) { get<WizardMana>() = m; }
+        int tomes(int s) const { return get<WizardTomes>()[s]; }
+        void tomes(int s, int n) { get<WizardTomes>()[s] = n; }
         
         SavegameData* data;
         int wizard_id;
@@ -95,6 +97,7 @@ namespace momom {
     static constexpr int MaxFame = 30000;
     static constexpr int MaxGold = 30000;
     static constexpr int MaxMana = 30000;
+    static constexpr int MaxTomesPerSchool = 13;
 
     Wizard::Wizard(SavegameData* data, int wizard_id)
     : wi{new WizardInternals(data, wizard_id)} {}
@@ -135,5 +138,19 @@ namespace momom {
     void Wizard::gold(int g) { wi->gold(std::max(0, std::min(MaxGold, g))); }
     int Wizard::mana() const { return wi->mana(); }
     void Wizard::mana(int m) { wi->mana(std::max(0, std::min(MaxMana, m))); }
+    
+    int Wizard::tomes(MagicSchool s) const {
+        if(s >= MagicSchool::Arcane) {
+            throw InvalidTomeSchoolException(static_cast<int>(s));
+        }
+        return wi->tomes(static_cast<int>(s));
+    }
+    
+    void Wizard::tomes(MagicSchool s, int n) {
+        if(s >= MagicSchool::Arcane) {
+            throw InvalidTomeSchoolException(static_cast<int>(s));
+        }
+        wi->tomes(static_cast<int>(s), std::max(0, std::min(MaxTomesPerSchool, n)));
+    }
 
 }

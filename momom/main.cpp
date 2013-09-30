@@ -60,5 +60,10 @@ int main(int argc, const char * argv[])
     me.gold(30000);
     me.mana(30000);
     me.fame(30000);
+    me.tomes(MagicSchool::Sorcery, 13);
+    me.tomes(MagicSchool::Chaos, 13);
+    me.tomes(MagicSchool::Life, 13);
+    me.tomes(MagicSchool::Death, 13);
+    me.tomes(MagicSchool::Nature, 13);
     
 }
