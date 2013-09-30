@@ -63,29 +63,21 @@ namespace momom {
         : data{data}
         , wizard_id{wizard_id} {}
         
+        template<typename F> typename F::value_type& get() {
+            return data->get<F>(wizard_id);
+        }
+        
         template<typename F> const typename F::value_type& get() const {
             return data->get<F>(wizard_id);
         }
         
-        const char* name() const {
-            return &get<WizardName>()[0];
-        }
-        
-        const int race() const {
-            return get<WizardRace>();
-        }
-        
-        const int banner() const {
-            return get<WizardBanner>();
-        }
-        
-        const int personality() const {
-            return get<WizardPersonality>();
-        }
-        
-        const int objective() const {
-            return get<WizardObjective>();
-        }
+        const char* name() const { return &get<WizardName>()[0]; }
+        const int race() const { return get<WizardRace>(); }
+        const int banner() const { return get<WizardBanner>(); }
+        const int personality() const { return get<WizardPersonality>(); }
+        void personality(int p) { get<WizardPersonality>() = p; }
+        const int objective() const { return get<WizardObjective>(); }
+        void objective(int o) { get<WizardObjective>() = o; }
         
         SavegameData* data;
         int wizard_id;
@@ -124,8 +116,16 @@ namespace momom {
         return static_cast<Personality>(wi->personality());
     }
     
+    void Wizard::personality(Personality p) {
+        wi->personality(static_cast<int>(p));
+    }
+    
     Objective Wizard::objective() const {
         return static_cast<Objective>(wi->objective());
+    }
+    
+    void Wizard::objective(Objective o) {
+        wi->objective(static_cast<int>(o));
     }
 
 }

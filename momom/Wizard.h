@@ -39,8 +39,12 @@ namespace momom {
         std::string name() const;
         Race race() const;
         Banner banner() const;
+        
         Personality personality() const;
+        void personality(Personality);
+        
         Objective objective() const;
+        void objective(Objective);
         
     private:
         std::unique_ptr<class WizardInternals> wi;

@@ -43,6 +43,8 @@ int main(int argc, const char * argv[])
 //    
     for(int i = 0; i < s.nofWizards(); ++i) {
         Wizard w = s.wizard(static_cast<WizardID>(i));
+        w.personality(Personality::Peaceful);
+        w.objective(Objective::Perfectionist);
         std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
             "/" << w.objective() << ")\n";
         
