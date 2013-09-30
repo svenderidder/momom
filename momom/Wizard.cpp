@@ -7,22 +7,25 @@
 //
 
 #include <algorithm>
+#include <cstring>
 
 #include "Wizard.h"
 #include "SavegameData.h"
 
 namespace momom {
     
+    static constexpr int MaxWizards = 5;
     static constexpr int MaxFame = 30000;
     static constexpr int MaxGold = 30000;
     static constexpr int MaxMana = 30000;
     static constexpr int TotalTomeRealms = 5;
     static constexpr int MaxTomesPerRealm = 13;
     static constexpr int TotalRetorts = 18;
+    static constexpr std::size_t MaxNameSize = 20; // 20 characters, but including '\0'.
 
-    struct WizardRegion: Region<0x09E8, 1224, 5> {};
+    struct WizardRegion: Region<0x09E8, 1224, MaxWizards> {};
     struct Portrait: F<WizardRegion, uint8_t, 0x0000> {};
-    struct WizardName: F<WizardRegion, char[20], 0x0001> {};
+    struct WizardName: F<WizardRegion, char[MaxNameSize], 0x0001> {};
     struct WizardRace: F<WizardRegion, uint8_t, 0x0015> {};
     struct WizardBanner: F<WizardRegion, uint16_t, 0x0016> {};
     struct WizardPersonality: F<WizardRegion, uint16_t, 0x0018> {};
@@ -70,7 +73,9 @@ namespace momom {
     struct WizardInternals {
         WizardInternals(SavegameData* data, int wizard_id)
         : data{data}
-        , wizard_id{wizard_id} {}
+        , wizard_id{wizard_id} {
+            assert(0 <= wizard_id && wizard_id < MaxWizards);
+        }
         
         template<typename F> typename F::value_type& get() {
             return data->get<F>(wizard_id);
@@ -80,7 +85,16 @@ namespace momom {
             return data->get<F>(wizard_id);
         }
         
-        const char* name() const { return &get<WizardName>()[0]; }
+        const char* name() const {
+            return &get<WizardName>()[0];
+        }
+        
+        void name(const char* n) {
+            char* dest = &get<WizardName>()[0];
+            strncpy(dest, n, MaxNameSize - 1);
+            dest[MaxNameSize-1] = '\0';
+        }
+        
         int race() const { return get<WizardRace>(); }
         int banner() const { return get<WizardBanner>(); }
         int personality() const { return get<WizardPersonality>(); }
@@ -136,11 +150,10 @@ namespace momom {
             get<WizardRetorts>()[r] = v ? 0x01 : 0x00;
         }
         
-        SavegameData* data;
-        int wizard_id;
+        SavegameData* const data;
+        const int wizard_id;
     };
 
-    static constexpr std::size_t MaxNameSize = 19; // 20 characters, but including '\0'.
 
     Wizard::Wizard(SavegameData* data, int wizard_id)
     : wi{new WizardInternals(data, wizard_id)} {}
@@ -161,6 +174,10 @@ namespace momom {
     
     std::string Wizard::name() const {
         return std::string(wi->name());
+    }
+    
+    void Wizard::name(const std::string& n) {
+        wi->name(n.c_str());
     }
     
     Race Wizard::race() const {

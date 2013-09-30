@@ -43,7 +43,10 @@ namespace momom {
         Wizard& operator=(Wizard&& moved);
         
         WizardID id() const;
+        
         std::string name() const;
+        void name(const std::string&);
+        
         Race race() const;
         Banner banner() const;
         
