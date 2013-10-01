@@ -58,7 +58,7 @@ namespace momom {
     struct WizardMana: F<WizardRegion, uint16_t, 0x025C> {};
     struct CastingSkillSq: F<WizardRegion, uint32_t, 0x025E> {};
     struct CurrentSpellRes: F<WizardRegion, uint16_t, 0x0262> {};
-    struct SpellStatus: F<WizardRegion, uint8_t[214], 0x0264> {};
+    struct WizardSpellResearchStatus: F<WizardRegion, uint8_t[TotalSpells], 0x0264> {};
     struct Defeated: F<WizardRegion, uint16_t, 0x0354> {};
     struct WizardGold: F<WizardRegion, uint16_t, 0x0356> {};
     struct AstMagicPower: F<WizardRegion, uint16_t, 0x035A> {};
@@ -159,6 +159,17 @@ namespace momom {
             get<WizardGlobalEnchantments>()[e] = v ? 0x01 : 0x00;
         }
         
+        int spellResearchStatus(int s) const {
+            assert(0 <= s && s < TotalSpells);
+            return get<WizardSpellResearchStatus>()[s];
+        }
+        
+        void spellResearchStatus(int s, int srs) {
+            assert(0 <= s && s < TotalSpells);
+            assert(0x00 <= srs && srs <= 0x03);
+            get<WizardSpellResearchStatus>()[s] = srs;
+        }
+        
         SavegameData* const data;
         const int wizard_id;
     };
@@ -236,6 +247,15 @@ namespace momom {
     
     void Wizard::globalEnchantment(GlobalEnchantment e, bool v) {
         wi->globalEnchantment(static_cast<int>(e), v);
+    }
+    
+    SpellResearchStatus Wizard::spellResearchStatus(Spell s) const {
+        return static_cast<SpellResearchStatus>(
+            wi->spellResearchStatus(static_cast<int>(s)));
+    }
+    
+    void Wizard::spellResearchStatus(Spell s, SpellResearchStatus srs) {
+        wi->spellResearchStatus(static_cast<int>(s), static_cast<int>(srs));
     }
 
 }

@@ -19,6 +19,8 @@
 #include "MagicSchool.h"
 #include "Retort.h"
 #include "GlobalEnchantment.h"
+#include "Spell.h"
+#include "SpellResearchStatus.h"
 
 namespace momom {
     
@@ -75,6 +77,9 @@ namespace momom {
         
         bool globalEnchantment(GlobalEnchantment) const;
         void globalEnchantment(GlobalEnchantment, bool);
+        
+        SpellResearchStatus spellResearchStatus(Spell) const;
+        void spellResearchStatus(Spell, SpellResearchStatus);
         
     private:
         std::unique_ptr<class WizardInternals> wi;

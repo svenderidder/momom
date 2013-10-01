@@ -41,35 +41,38 @@ int main(int argc, const char * argv[])
 //        }
 //    }
 //    
-    for(int i = 0; i < s.nofWizards(); ++i) {
-        Wizard w = s.wizard(static_cast<WizardID>(i));
+//    for(int i = 0; i < s.nofWizards(); ++i) {
+//        Wizard w = s.wizard(static_cast<WizardID>(i));
 //        w.personality(Personality::Peaceful);
 //        w.objective(Objective::Perfectionist);
-        std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
-            "/" << w.objective() << ")\n";
-        
-    }
-    
-    for(int u = 0; u < s.nofUnits(); ++u) {
-        Unit unit = s.unit(u);
-        std::cout << u << ": " << unit.type() << "(" << unit.owner()
-            << " " << unit.location() << ")\n";
-    }
+//        std::cout << w.banner() << ": " << w.name() << " (" << w.personality() <<
+//            "/" << w.objective() << ")\n";
+//        
+//    }
+//    
+//    for(int u = 0; u < s.nofUnits(); ++u) {
+//        Unit unit = s.unit(u);
+//        std::cout << u << ": " << unit.type() << "(" << unit.owner()
+//            << " " << unit.location() << ")\n";
+//    }
     
     Wizard me = s.wizard(WizardID::Player);
-    me.gold(30000);
-    me.mana(30000);
-    me.fame(30000);
-    me.tomes(MagicSchool::Sorcery, 13);
-    me.tomes(MagicSchool::Chaos, 13);
-    me.tomes(MagicSchool::Life, 13);
-    me.tomes(MagicSchool::Death, 13);
-    me.tomes(MagicSchool::Nature, 13);
-    me.retort(Retort::Warlord, true);
-    me.name("Slartibartfast");
-    me.globalEnchantment(GlobalEnchantment::Armageddon, true);
+//    me.gold(30000);
+//    me.mana(30000);
+//    me.fame(30000);
+//    me.tomes(MagicSchool::Sorcery, 13);
+//    me.tomes(MagicSchool::Chaos, 13);
+//    me.tomes(MagicSchool::Life, 13);
+//    me.tomes(MagicSchool::Death, 13);
+//    me.tomes(MagicSchool::Nature, 13);
+//    for(Retort r: AllRetorts) me.retort(r, true);
+//    for(GlobalEnchantment e: AllGlobalEnchantments) me.globalEnchantment(e, true);
     
-    std::copy_if(std::begin(AllRetorts), std::end(AllRetorts),
-                 std::ostream_iterator<Retort>(std::cout, "\n"),
-                 [&me](Retort r) { return me.retort(r); });
+    for(Spell s: AllSpells) {
+        me.spellResearchStatus(s, SpellResearchStatus::Known);
+    }
+    
+//    std::copy_if(std::begin(AllRetorts), std::end(AllRetorts),
+//                 std::ostream_iterator<Retort>(std::cout, "\n"),
+//                 [&me](Retort r) { return me.retort(r); });
 }
