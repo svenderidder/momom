@@ -7,7 +7,6 @@
 //
 
 #include <algorithm>
-#include <boost/iterator/filter_iterator.hpp>
 #include <cstring>
 
 #include "Wizard.h"
@@ -21,7 +20,6 @@ namespace momom {
     static constexpr int MaxMana = 30000;
     static constexpr int TotalTomeRealms = 5;
     static constexpr int MaxTomesPerRealm = 13;
-    static constexpr int TotalRetorts = 18;
     static constexpr std::size_t MaxNameSize = 20; // 20 characters, but including '\0'.
 
     struct WizardRegion: Region<0x09E8, 1224, MaxWizards> {};
@@ -230,15 +228,6 @@ namespace momom {
     
     void Wizard::retort(Retort r, bool v) {
         wi->retort(static_cast<int>(r), v);
-    }
-    
-    std::vector<GlobalEnchantment> Wizard::globalEnchantments() const {
-        auto result = std::vector<GlobalEnchantment>();
-        std::copy_if(
-            std::begin(AllGlobalEnchantments), std::end(AllGlobalEnchantments),
-            std::back_inserter(result),
-            [this](GlobalEnchantment e) { return globalEnchantment(e); });
-        return std::move(result);
     }
     
     bool Wizard::globalEnchantment(GlobalEnchantment e) const {

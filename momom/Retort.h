@@ -12,7 +12,9 @@
 #include <ostream>
 
 namespace momom {
-    
+
+    static constexpr int TotalRetorts = 18;
+
     enum class Retort {
         Alchemy = 0,
         Warlord = 1,
@@ -37,7 +39,29 @@ namespace momom {
     const char* toString(Retort);
     
     std::ostream& operator<<(std::ostream&, Retort);
-    
+
+    // Listing of all retorts so we can iterate over the enumeration.
+    constexpr Retort AllRetorts[] = {
+        Retort::Alchemy,
+        Retort::Warlord,
+        Retort::ChaosMaster,
+        Retort::NatureMaster,
+        Retort::SorceryMaster,
+        Retort::InfernalPower,
+        Retort::DivinePower,
+        Retort::SageMaster,
+        Retort::Channeler,
+        Retort::Myrran,
+        Retort::Archmage,
+        Retort::ManaFocusing,
+        Retort::NodeMastery,
+        Retort::Famous,
+        Retort::Runemaster,
+        Retort::Conjurer,
+        Retort::Charismatic,
+        Retort::Artificer,
+    };
+
 }
 
 #endif

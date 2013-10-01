@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
-#include <fstream>
+#include <iterator>
 #include <iostream>
 
 #include "Savegame.h"
@@ -69,8 +69,7 @@ int main(int argc, const char * argv[])
     me.name("Slartibartfast");
     me.globalEnchantment(GlobalEnchantment::Armageddon, true);
     
-    for(GlobalEnchantment e: me.globalEnchantments()) {
-        std::cout << e << "\n";
-    }
-    
+    std::copy_if(std::begin(AllRetorts), std::end(AllRetorts),
+                 std::ostream_iterator<Retort>(std::cout, "\n"),
+                 [&me](Retort r) { return me.retort(r); });
 }

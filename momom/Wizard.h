@@ -10,7 +10,6 @@
 #define momom_Wizard_h
 
 #include <string>
-#include <vector>
 
 #include "WizardID.h"
 #include "Race.h"
@@ -74,12 +73,12 @@ namespace momom {
         bool retort(Retort) const;
         void retort(Retort, bool);
         
-        std::vector<GlobalEnchantment> globalEnchantments() const;
         bool globalEnchantment(GlobalEnchantment) const;
         void globalEnchantment(GlobalEnchantment, bool);
         
     private:
         std::unique_ptr<class WizardInternals> wi;
+        
     };
 }
 
