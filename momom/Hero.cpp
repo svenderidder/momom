@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
-#include <sstream>
-#include <stdexcept>
-#include <iomanip>
 #include <cmath>
 
 #include "Hero.h"
