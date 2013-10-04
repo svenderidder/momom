@@ -27,16 +27,18 @@ namespace momom {
         bool ability(HeroAbility) const;
         void ability(HeroAbility, bool);
         
+        int castingSkill() const;
+        void castingSkill(int);
+        
         Spell spell(int index) const;
         void spell(int index, Spell);
-        
-        
-        
-        
         
     private:
         std::unique_ptr<struct HeroInternals> hi;
     };
+    
+    int castingSkillToMana(int s);
+    int manaToCastingSkill(int m);
     
 }
 

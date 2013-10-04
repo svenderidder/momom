@@ -9,6 +9,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <iomanip>
+#include <cmath>
 
 #include "Hero.h"
 #include "SavegameData.h"
@@ -51,6 +52,14 @@ namespace momom {
             else get<HeroAbilities>() &= ~a;
         }
         
+        uint8_t castingSkill() const {
+            return get<HeroCastingSkill>();
+        }
+        
+        void castingSkill(uint8_t v) {
+            get<HeroCastingSkill>() = v;
+        }
+        
         uint8_t spell(int index) const {
             assert(0 <= index && index < MaxHeroSpells);
             return get<HeroSpells>()[index];
@@ -91,6 +100,15 @@ namespace momom {
         hi->ability(static_cast<uint32_t>(a), v);
     }
     
+    int Hero::castingSkill() const {
+        return static_cast<int>(hi->castingSkill());
+    }
+    
+    void Hero::castingSkill(int v) {
+        assert(0 <= v && v <= 0xff);
+        hi->castingSkill(static_cast<uint8_t>(v));
+    }
+    
     Spell Hero::spell(int index) const {
         uint8_t s = hi->spell(index);
         return s > 0 ? static_cast<Spell>(s - 1) : Spell::None;
@@ -99,6 +117,14 @@ namespace momom {
     void Hero::spell(int index, Spell spell) {
         uint8_t s = (spell == Spell::None) ? 0 : (static_cast<uint8_t>(spell) + 1);
         hi->spell(index, s);
+    }
+    
+    int castingSkillToMana(int s) {
+        return s > 0 ? static_cast<int>(std::floor((s+1) * 2.5f)) : 0;
+    }
+    
+    int manaToCastingSkill(int m) {
+        return m > 0 ? static_cast<int>(std::ceil(m / 2.5f) - 1) : 0;
     }
     
 }
