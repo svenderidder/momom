@@ -16,9 +16,12 @@ namespace momom {
     static constexpr int MaxWizards = 5;
     static constexpr int TotalHeroes = 35;
     static constexpr int MaxHeroSpells = 4;
+    static constexpr int MinHeroLevel = 1;
+    static constexpr int MaxHeroLevel = 9;
+    static constexpr int16_t HeroHiredMarker = 0xffec;
 
     struct GlobalHeroRegion: Region<0x0000, 12, MaxWizards * TotalHeroes> {};
-    struct HeroStatus: F<GlobalHeroRegion, uint16_t, 0x0000> {};
+    struct HeroStatus: F<GlobalHeroRegion, int16_t, 0x0000> {};
     struct HeroAbilities: F<GlobalHeroRegion, uint32_t, 0x0002> {};
     struct HeroCastingSkill: F<GlobalHeroRegion, uint8_t, 0x0006> {};
     struct HeroSpells: F<GlobalHeroRegion, uint8_t[MaxHeroSpells], 0x0007> {};
@@ -38,6 +41,49 @@ namespace momom {
         
         template<typename F> const typename F::value_type& get() const {
             return data->get<F>(hero_index);
+        }
+        
+        bool hired() const {
+            return get<HeroStatus>() == HeroHiredMarker;
+        }
+        
+        int16_t hire() {
+            int16_t& current = get<HeroStatus>();
+            assert(current != HeroHiredMarker);
+            int16_t previous = current;
+            current = HeroHiredMarker;
+            return previous;
+        }
+        
+        void unhire(int16_t next) {
+            int16_t& current = get<HeroStatus>();
+            assert(current == HeroHiredMarker);
+            current = next;
+        }
+        
+        bool alive() const {
+            int16_t current = get<HeroStatus>();
+            assert(current != HeroHiredMarker);
+            return current > 0;
+        }
+        
+        void alive(bool v) {
+            int16_t& current = get<HeroStatus>();
+            assert(current != HeroHiredMarker);
+            current = v ? abs(current) : -abs(current);
+        }
+        
+        int level() const {
+            int16_t current = get<HeroStatus>();
+            assert(current != HeroHiredMarker);
+            return abs(current);
+        }
+        
+        void level(int l) {
+            int16_t& current = get<HeroStatus>();
+            assert(current != HeroHiredMarker);
+            assert(1 <= MinHeroLevel && l <= MaxHeroLevel);
+            current = current > 0 ? l : -l;
         }
         
         bool ability(uint32_t a) const {
@@ -87,6 +133,36 @@ namespace momom {
     Hero& Hero::operator=(Hero&& moved) {
         hi = std::move(moved.hi);
         return *this;
+    }
+    
+    bool Hero::hired() const {
+        return hi->hired();
+    }
+    
+    std::pair<bool, int> Hero::hire() {
+        int16_t previous = hi->hire();
+        return std::make_pair(previous > 0, abs(previous));
+    }
+    
+    void Hero::unhire(bool alive, int level) {
+        int16_t current = alive ? level : -level;
+        hi->unhire(current);
+    }
+    
+    bool Hero::alive() const {
+        return hi->alive();
+    }
+    
+    void Hero::alive(bool v) {
+        hi->alive(v);
+    }
+    
+    int Hero::level() const {
+        return hi->level();
+    }
+    
+    void Hero::level(int l) {
+        hi->level(l);
     }
     
     bool Hero::ability(HeroAbility a) const {

@@ -24,6 +24,16 @@ namespace momom {
         ~Hero();
         Hero& operator=(Hero&& moved);
         
+        bool hired() const;
+        std::pair<bool, int> hire();
+        void unhire(bool alive, int level);
+        
+        bool alive() const;
+        void alive(bool);
+        
+        int level() const;
+        void level(int);
+        
         bool ability(HeroAbility) const;
         void ability(HeroAbility, bool);
         

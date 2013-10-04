@@ -31,10 +31,13 @@ int main(int argc, const char * argv[])
     std::cout << "Turn: " << s.turn() << "\n";
     std::cout << "Active Unit: " << s.activeUnit() << "\n";
     
-    Hero h = s.hero(0, 33);
-    h.ability(HeroAbility::Noble, true);
-    h.spell(0, Spell::StarFires);
-    std::cout << h.spell(0) << std::endl;
+    for(int i = 0; i < 35; ++i) {
+        Hero h = s.hero(0, i);
+        if(!h.hired()) {
+            h.level(9);
+            h.alive(true);
+        }
+    }
     
 //    for(int w = 0; w < s.nofWizards(); ++w) {
 //        for(int h = 0; h < 35; ++h) {
