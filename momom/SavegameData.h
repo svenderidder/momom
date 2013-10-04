@@ -26,12 +26,6 @@ namespace momom {
         static const ptrdiff_t offset = O;
     };
     
-    struct GlobalHeroRegion: Region<0x0000, 12, 35*5> {};
-    struct HeroStatus: F<GlobalHeroRegion, uint16_t, 0x0000> {};
-    struct HeroAbilities: F<GlobalHeroRegion, uint32_t, 0x0002> {};
-    struct HeroCastingSkill: F<GlobalHeroRegion, uint8_t, 0x0006> {};
-    struct HeroSpells: F<GlobalHeroRegion, uint32_t, 0x0008> {};
-    
     struct GeneralDataRegion: Region<0x09D8, 16> {};
     struct NofWizards: F<GeneralDataRegion, uint16_t, 0x0000> {};
     struct F_LandSize: F<GeneralDataRegion, uint16_t, 0x0002> {};

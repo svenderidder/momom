@@ -74,8 +74,8 @@ namespace momom {
         return v;
     }
     
-    const Hero Savegame::hero(int wizard_id, int hero_id) const {
-        return Hero(data.get(), wizard_id, hero_id);
+    Hero Savegame::hero(int wizard_id, int hero_id) {
+        return std::move(Hero(data.get(), wizard_id, hero_id));
     }
     
     Wizard Savegame::wizard(WizardID id) {

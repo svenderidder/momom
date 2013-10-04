@@ -46,7 +46,7 @@ namespace momom {
         int activeUnit() const;
         
         // Heroes
-        const Hero hero(int wizard_id, int hero_id) const;
+        Hero hero(int wizard_id, int hero_id);
         
         // Wizards
         Wizard wizard(WizardID id);
