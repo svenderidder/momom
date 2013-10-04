@@ -59,11 +59,14 @@ int main(int argc, const char * argv[])
 //        
 //    }
 //    
-//    for(int u = 0; u < s.nofUnits(); ++u) {
-//        Unit unit = s.unit(u);
-//        std::cout << u << ": " << unit.type() << "(" << unit.owner()
-//            << " " << unit.location() << ")\n";
-//    }
+    for(int u = 0; u < s.nofUnits(); ++u) {
+        Unit unit = s.unit(u);
+        std::cout << u << ": " << unit.type() << "(" << unit.owner()
+            << " " << unit.location() << ")\n";
+    }
+    
+    Unit u = s.unit(73);
+    u.location(u.location().north(10).west(10));
     
     Wizard me = s.wizard(WizardID::Player);
 //    me.gold(30000);

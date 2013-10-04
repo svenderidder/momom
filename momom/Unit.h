@@ -9,27 +9,32 @@
 #ifndef momom_Unit_h
 #define momom_Unit_h
 
+#include <memory>
+
 #include "WizardID.h"
 #include "UnitType.h"
 #include "Location.h"
 
 namespace momom {
     
-    class SavegameData;
-    
     class Unit {
     public:
-        Unit(SavegameData* data, int unit_id);
+        Unit(class SavegameData* data, int unit_id);
+        Unit(Unit&& moved);
+        ~Unit();
+        Unit& operator=(Unit&& moved);
         
         WizardID owner() const;
+        void owner(WizardID);
+        
         UnitType type() const;
         void type(UnitType type);
         
         Location location() const;
+        void location(const Location&);
         
     private:
-        SavegameData* data;
-        const int unit_id;
+        std::unique_ptr<struct UnitInternals> ui;
     };
     
 }

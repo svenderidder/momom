@@ -28,8 +28,8 @@ namespace momom {
     public:
         Location(int x, int y, Plane plane);
         
-        int x() const;
-        int y() const;
+        int xpos() const;
+        int ypos() const;
         Plane plane() const;
         
         Location north(int steps = 1) const;

@@ -20,8 +20,8 @@ namespace momom {
         if(y < 0 || y >= h) throw CoordinateOutOfRangeException('y', y);
     }
     
-    int Location::x() const { return cx; }
-    int Location::y() const { return cy; }
+    int Location::xpos() const { return cx; }
+    int Location::ypos() const { return cy; }
     Plane Location::plane() const { return cplane; }
     
     Location Location::north(int steps) const {
@@ -41,7 +41,7 @@ namespace momom {
     }
 
     std::ostream& operator<<(std::ostream& os, const Location& l) {
-        return os << l.plane() << ":" << l.x() << "," << l.y();
+        return os << l.plane() << ":" << l.xpos() << "," << l.ypos();
     }
 
 }
