@@ -17,6 +17,8 @@ namespace momom {
     
     enum class Spell {
         
+        None = -1,
+        
         // Nature
         EarthToMud = 0,
         ResistElements = 1,

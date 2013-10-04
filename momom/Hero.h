@@ -12,6 +12,7 @@
 #include <memory>
 
 #include "HeroAbility.h"
+#include "Spell.h"
 
 namespace momom {
     
@@ -25,6 +26,12 @@ namespace momom {
         
         bool ability(HeroAbility) const;
         void ability(HeroAbility, bool);
+        
+        Spell spell(int index) const;
+        void spell(int index, Spell);
+        
+        
+        
         
         
     private:

@@ -12,6 +12,7 @@ namespace momom {
     
     const char* toString(Spell s) {
         switch(s) {
+        case Spell::None: return "No spell";
         case Spell::EarthToMud: return "Earth to Mud";
         case Spell::ResistElements: return "Resist Elements";
         case Spell::WallOfStone: return "Wall of Stone";

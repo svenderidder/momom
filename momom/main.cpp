@@ -31,16 +31,21 @@ int main(int argc, const char * argv[])
     std::cout << "Turn: " << s.turn() << "\n";
     std::cout << "Active Unit: " << s.activeUnit() << "\n";
     
-    for(int w = 0; w < s.nofWizards(); ++w) {
-        for(int h = 0; h < 35; ++h) {
-            Hero hero = s.hero(w, h);
-            std::cout << "(" << w << "," << h << "): ";
-            std::copy_if(std::begin(AllHeroAbilities), std::end(AllHeroAbilities),
-                         std::ostream_iterator<HeroAbility>(std::cout, " "),
-                         [&hero](HeroAbility a) { return hero.ability(a); });
-            std::cout << "\n";
-        }
-    }
+    Hero h = s.hero(0, 33);
+    h.ability(HeroAbility::Noble, true);
+    h.spell(0, Spell::StarFires);
+    std::cout << h.spell(0) << std::endl;
+    
+//    for(int w = 0; w < s.nofWizards(); ++w) {
+//        for(int h = 0; h < 35; ++h) {
+//            Hero hero = s.hero(w, h);
+//            std::cout << "(" << w << "," << h << "): ";
+//            std::copy_if(std::begin(AllHeroAbilities), std::end(AllHeroAbilities),
+//                         std::ostream_iterator<HeroAbility>(std::cout, " "),
+//                         [&hero](HeroAbility a) { return hero.ability(a); });
+//            std::cout << "\n";
+//        }
+//    }
 //
 //    for(int i = 0; i < s.nofWizards(); ++i) {
 //        Wizard w = s.wizard(static_cast<WizardID>(i));
@@ -70,7 +75,7 @@ int main(int argc, const char * argv[])
 //    for(GlobalEnchantment e: AllGlobalEnchantments) me.globalEnchantment(e, true);
     
     for(Spell s: AllSpells) {
-        me.spellResearchStatus(s, SpellResearchStatus::Known);
+        me.spellResearchStatus(s, SpellResearchStatus::EventuallyResearchable);
     }
     
 //    std::copy_if(std::begin(AllRetorts), std::end(AllRetorts),

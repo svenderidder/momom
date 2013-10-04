@@ -23,7 +23,7 @@ namespace momom {
     struct HeroStatus: F<GlobalHeroRegion, uint16_t, 0x0000> {};
     struct HeroAbilities: F<GlobalHeroRegion, uint32_t, 0x0002> {};
     struct HeroCastingSkill: F<GlobalHeroRegion, uint8_t, 0x0006> {};
-    struct HeroSpells: F<GlobalHeroRegion, uint8_t[MaxHeroSpells], 0x0008> {};
+    struct HeroSpells: F<GlobalHeroRegion, uint8_t[MaxHeroSpells], 0x0007> {};
     
     struct HeroInternals {
         HeroInternals(SavegameData* data, int wizard_id, int hero_id)
@@ -49,6 +49,17 @@ namespace momom {
         void ability(uint32_t a, bool v) {
             if(v) get<HeroAbilities>() |= a;
             else get<HeroAbilities>() &= ~a;
+        }
+        
+        uint8_t spell(int index) const {
+            assert(0 <= index && index < MaxHeroSpells);
+            return get<HeroSpells>()[index];
+        }
+        
+        void spell(int index, uint8_t s) {
+            assert(0 <= index && index < MaxHeroSpells);
+            assert(0 <= s && s < (TotalSpells + 1));
+            get<HeroSpells>()[index] = s;
         }
 
         SavegameData* const data;
@@ -78,6 +89,16 @@ namespace momom {
     
     void Hero::ability(HeroAbility a, bool v) {
         hi->ability(static_cast<uint32_t>(a), v);
+    }
+    
+    Spell Hero::spell(int index) const {
+        uint8_t s = hi->spell(index);
+        return s > 0 ? static_cast<Spell>(s - 1) : Spell::None;
+    }
+    
+    void Hero::spell(int index, Spell spell) {
+        uint8_t s = (spell == Spell::None) ? 0 : (static_cast<uint8_t>(spell) + 1);
+        hi->spell(index, s);
     }
     
 }
