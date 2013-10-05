@@ -17,7 +17,7 @@
 namespace momom {
     
     struct SavegameHandles {
-        std::map<int, Unit*> units;
+        std::map<int, std::shared_ptr<Unit>> units;
     };
     
     Savegame load(const char* filename) {
@@ -96,7 +96,7 @@ namespace momom {
     Unit& Savegame::unit(int unit_id) {
         auto it = handles->units.find(unit_id);
         if(it == handles->units.end()) {
-            Unit* pu = new RegularUnit(data.get(), unit_id);
+            std::shared_ptr<Unit> pu = std::make_shared<RegularUnit>(data.get(), unit_id);
             handles->units[unit_id] = pu;
             return *pu;
         }
