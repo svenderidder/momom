@@ -84,4 +84,5 @@ int main(int argc, const char * argv[])
 //    std::copy_if(std::begin(AllRetorts), std::end(AllRetorts),
 //                 std::ostream_iterator<Retort>(std::cout, "\n"),
 //                 [&me](Retort r) { return me.retort(r); });
+    
 }

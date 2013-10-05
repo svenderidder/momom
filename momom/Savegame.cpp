@@ -27,11 +27,11 @@ namespace momom {
     
     Savegame::Savegame(const char* filename, SavegameData* data)
     : data{data}
-    , units(data)
+    , units(data, Unit::create)
     , heroes(data) {}
     
     Savegame::Savegame(Savegame&& moved)
-    : data{std::move(moved.data)}, units(data.get()), heroes(data.get()) {}
+    : data{std::move(moved.data)}, units(data.get(), Unit::create), heroes(data.get()) {}
     
     Savegame::~Savegame() {}
     

@@ -109,6 +109,7 @@
 		266DFBA218002E2800F7F4F6 /* SummonedUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SummonedUnit.cpp; sourceTree = "<group>"; };
 		266DFBA418003D2F00F7F4F6 /* HeroTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroTable.h; sourceTree = "<group>"; };
 		266DFBA518003EFD00F7F4F6 /* HeroTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroTable.cpp; sourceTree = "<group>"; };
+		266DFBA7180041B900F7F4F6 /* CachedLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedLookup.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +199,7 @@
 				2608945417F1DD1700CEA80B /* Wizard.h */,
 				266DFB8517F97BBC00F7F4F6 /* WizardID.cpp */,
 				266DFB8417F97B3500F7F4F6 /* WizardID.h */,
+				266DFBA7180041B900F7F4F6 /* CachedLookup.h */,
 			);
 			path = momom;
 			sourceTree = "<group>";

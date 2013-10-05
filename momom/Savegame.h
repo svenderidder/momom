@@ -20,8 +20,8 @@
 #include "GameDifficulty.h"
 #include "LandSize.h"
 #include "MagicLevel.h"
-#include "UnitTable.h"
 #include "HeroTable.h"
+#include "CachedLookup.h"
 
 namespace momom {
     
@@ -57,7 +57,7 @@ namespace momom {
         
     private:
         std::unique_ptr<class SavegameData> data;
-        UnitTable units;
+        CachedLookup<int, Unit> units;
         HeroTable heroes;
         
         friend Savegame load(const char*);
