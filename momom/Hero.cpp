@@ -122,6 +122,10 @@ namespace momom {
     // Hero implementation
     // ---------------------------------------------------------------------------------------------
     
+    Hero* Hero::create(SavegameData* data, std::pair<WizardID, UnitType> id) {
+        return new Hero(data, static_cast<int>(id.first), static_cast<int>(id.second));
+    }
+    
     Hero::Hero(SavegameData* data, int wizard_id, int hero_id)
     : hi{new HeroInternals(data, wizard_id, hero_id)} {}
     

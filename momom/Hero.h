@@ -13,13 +13,19 @@
 
 #include "HeroAbility.h"
 #include "Spell.h"
+#include "WizardID.h"
+#include "UnitType.h"
 
 namespace momom {
+    
+    class SavegameData;
     
     class Hero {
         
     public:
-        Hero(class SavegameData* data, int wizard_id, int hero_id);
+        static Hero* create(SavegameData* data, std::pair<WizardID, UnitType>);
+        
+        Hero(SavegameData* data, int wizard_id, int hero_id);
         Hero(Hero&& moved);
         ~Hero();
         Hero& operator=(Hero&& moved);

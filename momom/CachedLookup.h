@@ -9,6 +9,7 @@
 #ifndef momom_CachedLookup_h
 #define momom_CachedLookup_h
 
+#include <map>
 #include <functional>
 
 namespace momom {
