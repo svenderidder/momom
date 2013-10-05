@@ -27,9 +27,10 @@ namespace momom {
     
     Savegame::Savegame(const char* filename, SavegameData* data)
     : data{data}
-    , handles(new SavegameHandles()) {}
+    , units(data) {}
     
-    Savegame::Savegame(Savegame&& moved) {}
+    Savegame::Savegame(Savegame&& moved)
+    : data{std::move(moved.data)}, units(data.get()) {}
     
     Savegame::~Savegame() {}
     
@@ -94,13 +95,7 @@ namespace momom {
     }
     
     Unit& Savegame::unit(int unit_id) {
-        auto it = handles->units.find(unit_id);
-        if(it == handles->units.end()) {
-            std::shared_ptr<Unit> pu = std::make_shared<RegularUnit>(data.get(), unit_id);
-            handles->units[unit_id] = pu;
-            return *pu;
-        }
-        return *it->second;
+        return units.get(unit_id);
     }
     
 

@@ -17,9 +17,11 @@
 
 namespace momom {
     
+    class SavegameData;
+    
     class Unit {
     public:
-        Unit(class SavegameData* data, int unit_id);
+        Unit(SavegameData* data, int unit_id);
         virtual ~Unit();
         
         WizardID owner() const;
@@ -39,6 +41,8 @@ namespace momom {
     private:
         std::unique_ptr<struct UnitInternals> ui;
     };
+    
+    Unit* createUnit(SavegameData* data, int unit_id);
     
 }
 

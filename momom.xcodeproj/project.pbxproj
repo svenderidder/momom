@@ -31,6 +31,7 @@
 		266DFB9417FB1D0A00F7F4F6 /* SpellResearchStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9317FB1D0A00F7F4F6 /* SpellResearchStatus.cpp */; };
 		266DFB9717FEEA8300F7F4F6 /* HeroAbility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9617FEEA8300F7F4F6 /* HeroAbility.cpp */; };
 		266DFB9A17FF21A700F7F4F6 /* RegularUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */; };
+		266DFB9D18001E0500F7F4F6 /* UnitTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9C18001E0500F7F4F6 /* UnitTable.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +98,8 @@
 		266DFB9617FEEA8300F7F4F6 /* HeroAbility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroAbility.cpp; sourceTree = "<group>"; };
 		266DFB9817FF20B500F7F4F6 /* RegularUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularUnit.h; sourceTree = "<group>"; };
 		266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegularUnit.cpp; sourceTree = "<group>"; };
+		266DFB9B18001CB400F7F4F6 /* UnitTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTable.h; sourceTree = "<group>"; };
+		266DFB9C18001E0500F7F4F6 /* UnitTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnitTable.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,8 @@
 				2608945417F1DD1700CEA80B /* Wizard.h */,
 				266DFB8517F97BBC00F7F4F6 /* WizardID.cpp */,
 				266DFB8417F97B3500F7F4F6 /* WizardID.h */,
+				266DFB9B18001CB400F7F4F6 /* UnitTable.h */,
+				266DFB9C18001E0500F7F4F6 /* UnitTable.cpp */,
 			);
 			path = momom;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */,
 				266DFB8317F8713700F7F4F6 /* Location.cpp in Sources */,
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
+				266DFB9D18001E0500F7F4F6 /* UnitTable.cpp in Sources */,
 				266DFB9417FB1D0A00F7F4F6 /* SpellResearchStatus.cpp in Sources */,
 				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
 				2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */,

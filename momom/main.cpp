@@ -64,7 +64,7 @@ int main(int argc, const char * argv[])
         std::cout << u << ": " << unit.type() << "(" << unit.owner()
             << " " << unit.location() << ")\n";
     }
-    
+
     Wizard me = s.wizard(WizardID::Player);
 //    me.gold(30000);
 //    me.mana(30000);

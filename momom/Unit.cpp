@@ -7,6 +7,7 @@
 //
 
 #include "Unit.h"
+#include "RegularUnit.h"
 #include "SavegameData.h"
 
 namespace momom {
@@ -148,6 +149,10 @@ namespace momom {
     
     void Unit::level(int l) {
         ui->level(l - 1);
+    }
+    
+    Unit* createUnit(SavegameData* data, int unit_id) {
+        return new RegularUnit(data, unit_id);
     }
     
 }
