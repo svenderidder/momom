@@ -258,6 +258,10 @@ namespace momom {
         Nagas = 197
     };
     
+    bool isHeroUnitType(UnitType);
+    bool isRegularUnitType(UnitType);
+    bool isSummonedUnitType(UnitType);
+    
     const char* toString(UnitType);
     
     std::ostream& operator<<(std::ostream&, UnitType);

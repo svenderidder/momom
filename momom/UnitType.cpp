@@ -10,6 +10,18 @@
 
 namespace momom {
     
+    bool isHeroUnitType(UnitType t) {
+        return UnitType::HeroDwarf <= t && t <= UnitType::HeroChosen;
+    }
+    
+    bool isRegularUnitType(UnitType t) {
+        return UnitType::Trireme <= t && t <= UnitType::TrollWarMammoths;
+    }
+    
+    bool isSummonedUnitType(UnitType t) {
+        return UnitType::MagicSpirit <= t && t <= UnitType::Nagas;
+    }
+    
     const char* toString(UnitType t) {
         switch(t) {
         case UnitType::HeroDwarf: return "Dwarf (Hero)";

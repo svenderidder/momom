@@ -30,6 +30,7 @@
 		266DFB9117FB187500F7F4F6 /* Spell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9017FB187500F7F4F6 /* Spell.cpp */; };
 		266DFB9417FB1D0A00F7F4F6 /* SpellResearchStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9317FB1D0A00F7F4F6 /* SpellResearchStatus.cpp */; };
 		266DFB9717FEEA8300F7F4F6 /* HeroAbility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9617FEEA8300F7F4F6 /* HeroAbility.cpp */; };
+		266DFB9A17FF21A700F7F4F6 /* RegularUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +95,8 @@
 		266DFB9317FB1D0A00F7F4F6 /* SpellResearchStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpellResearchStatus.cpp; sourceTree = "<group>"; };
 		266DFB9517FEE9AE00F7F4F6 /* HeroAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroAbility.h; sourceTree = "<group>"; };
 		266DFB9617FEEA8300F7F4F6 /* HeroAbility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroAbility.cpp; sourceTree = "<group>"; };
+		266DFB9817FF20B500F7F4F6 /* RegularUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularUnit.h; sourceTree = "<group>"; };
+		266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegularUnit.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				266DFB9217FB1CA100F7F4F6 /* SpellResearchStatus.h */,
 				266DFB7717F8351900F7F4F6 /* Unit.cpp */,
 				266DFB7617F833DA00F7F4F6 /* Unit.h */,
+				266DFB9817FF20B500F7F4F6 /* RegularUnit.h */,
+				266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */,
 				266DFB7A17F8674400F7F4F6 /* UnitType.cpp */,
 				266DFB7917F83C3B00F7F4F6 /* UnitType.h */,
 				2608945517F1DD9500CEA80B /* Wizard.cpp */,
@@ -253,6 +258,7 @@
 				266DFB8C17F9A68800F7F4F6 /* Retort.cpp in Sources */,
 				266DFB8617F97BBC00F7F4F6 /* WizardID.cpp in Sources */,
 				2608944E17F1C9FC00CEA80B /* GameDifficulty.cpp in Sources */,
+				266DFB9A17FF21A700F7F4F6 /* RegularUnit.cpp in Sources */,
 				266DFB7B17F8674400F7F4F6 /* UnitType.cpp in Sources */,
 				266DFB7F17F86E7200F7F4F6 /* Plane.cpp in Sources */,
 				266DFB8917F99F4500F7F4F6 /* MagicSchool.cpp in Sources */,

@@ -6,13 +6,19 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
+#include <map>
 #include <boost/interprocess/file_mapping.hpp>
 #include <boost/interprocess/mapped_region.hpp>
 #include <stdexcept>
 #include "Savegame.h"
 #include "SavegameData.h"
+#include "RegularUnit.h"
 
 namespace momom {
+    
+    struct SavegameHandles {
+        std::map<int, Unit*> units;
+    };
     
     Savegame load(const char* filename) {
         auto* data = new SavegameData(filename);
@@ -20,7 +26,8 @@ namespace momom {
     }
     
     Savegame::Savegame(const char* filename, SavegameData* data)
-    : data{data} {}
+    : data{data}
+    , handles(new SavegameHandles()) {}
     
     Savegame::Savegame(Savegame&& moved) {}
     
@@ -86,8 +93,14 @@ namespace momom {
         return std::move(Wizard(data.get(), wizard_id));
     }
     
-    Unit Savegame::unit(int unit_id) {
-        return Unit(data.get(), unit_id);
+    Unit& Savegame::unit(int unit_id) {
+        auto it = handles->units.find(unit_id);
+        if(it == handles->units.end()) {
+            Unit* pu = new RegularUnit(data.get(), unit_id);
+            handles->units[unit_id] = pu;
+            return *pu;
+        }
+        return *it->second;
     }
     
 

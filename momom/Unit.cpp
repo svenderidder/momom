@@ -98,6 +98,15 @@ namespace momom {
             get<F_UnitType>() = t;
         }
         
+        int level() const {
+            return get<UnitLevel>();
+        }
+        
+        void level(int l) {
+            assert(0 < l && l <= 8);
+            get<UnitLevel>() = l;
+        }
+        
         SavegameData* const data;
         int unit_id;
     };
@@ -105,15 +114,7 @@ namespace momom {
     Unit::Unit(SavegameData* data, int unit_id)
     : ui(new UnitInternals(data, unit_id)) {}
     
-    Unit::Unit(Unit&& moved)
-    : ui(std::move(moved.ui)) {}
-    
     Unit::~Unit() {}
-    
-    Unit& Unit::operator=(Unit&& moved) {
-        ui = std::move(moved.ui);
-        return *this;
-    }
     
     WizardID Unit::owner() const {
         return static_cast<WizardID>(ui->owner());
@@ -139,6 +140,14 @@ namespace momom {
         ui->xpos(l.xpos());
         ui->ypos(l.ypos());
         ui->plane(static_cast<int>(l.plane()));
+    }
+    
+    int Unit::level() const {
+        return ui->level() + 1;
+    }
+    
+    void Unit::level(int l) {
+        ui->level(l - 1);
     }
     
 }

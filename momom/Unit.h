@@ -20,9 +20,7 @@ namespace momom {
     class Unit {
     public:
         Unit(class SavegameData* data, int unit_id);
-        Unit(Unit&& moved);
-        ~Unit();
-        Unit& operator=(Unit&& moved);
+        virtual ~Unit();
         
         WizardID owner() const;
         void owner(WizardID);
@@ -32,6 +30,11 @@ namespace momom {
         
         Location location() const;
         void location(const Location&);
+        
+        int level() const;
+        void level(int);
+        
+        virtual int maxLevel() const = 0;
         
     private:
         std::unique_ptr<struct UnitInternals> ui;

@@ -51,10 +51,11 @@ namespace momom {
         // Wizards
         Wizard wizard(WizardID id);
         
-        Unit unit(int unit_id);
+        Unit& unit(int unit_id);
         
     private:
         std::unique_ptr<class SavegameData> data;
+        std::unique_ptr<struct SavegameHandles> handles;
         
         friend Savegame load(const char*);
     };
