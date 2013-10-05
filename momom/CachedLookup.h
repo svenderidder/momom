@@ -15,20 +15,20 @@ namespace momom {
     
     class SavegameData;
     
-    template<typename K, typename V>
+    template<typename K, typename V, typename F = std::function<V*(SavegameData*, K)>>
     class CachedLookup {
     public:
         typedef K key_type;
         typedef V value_type;
-        typedef std::function<V*(SavegameData*, K)> factory_type;
+        // typedef std::function<V*(SavegameData*, K)> factory_type;
         
-        CachedLookup(SavegameData* data, factory_type factory)
+        CachedLookup(SavegameData* data, F factory)
         : data{data}, factory{factory} {}
         
         V& get(K key) {
             // Avoid code duplication by casting away the constness of the result of the const
             // method. Not pretty, but safe.
-            return const_cast<V&>(static_cast<const CachedLookup<K, V>*>(this)->get(key));
+            return const_cast<V&>(static_cast<const CachedLookup<K, V, F>*>(this)->get(key));
         }
         
         const V& get(K key) const {
@@ -45,7 +45,7 @@ namespace momom {
     private:
         mutable std::map<K, std::shared_ptr<V>> cache;
         SavegameData* const data;
-        factory_type factory;
+        F factory;
     };
 }
 
