@@ -31,7 +31,6 @@
 		266DFB9417FB1D0A00F7F4F6 /* SpellResearchStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9317FB1D0A00F7F4F6 /* SpellResearchStatus.cpp */; };
 		266DFB9717FEEA8300F7F4F6 /* HeroAbility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9617FEEA8300F7F4F6 /* HeroAbility.cpp */; };
 		266DFB9A17FF21A700F7F4F6 /* RegularUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */; };
-		266DFB9D18001E0500F7F4F6 /* UnitTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9C18001E0500F7F4F6 /* UnitTable.cpp */; };
 		266DFBA018002D3600F7F4F6 /* HeroUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9F18002D3600F7F4F6 /* HeroUnit.cpp */; };
 		266DFBA318002E2800F7F4F6 /* SummonedUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFBA218002E2800F7F4F6 /* SummonedUnit.cpp */; };
 		266DFBA618003EFD00F7F4F6 /* HeroTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFBA518003EFD00F7F4F6 /* HeroTable.cpp */; };
@@ -101,8 +100,6 @@
 		266DFB9617FEEA8300F7F4F6 /* HeroAbility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroAbility.cpp; sourceTree = "<group>"; };
 		266DFB9817FF20B500F7F4F6 /* RegularUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularUnit.h; sourceTree = "<group>"; };
 		266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegularUnit.cpp; sourceTree = "<group>"; };
-		266DFB9B18001CB400F7F4F6 /* UnitTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTable.h; sourceTree = "<group>"; };
-		266DFB9C18001E0500F7F4F6 /* UnitTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnitTable.cpp; sourceTree = "<group>"; };
 		266DFB9E18002CF600F7F4F6 /* HeroUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroUnit.h; sourceTree = "<group>"; };
 		266DFB9F18002D3600F7F4F6 /* HeroUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroUnit.cpp; sourceTree = "<group>"; };
 		266DFBA118002DE700F7F4F6 /* SummonedUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummonedUnit.h; sourceTree = "<group>"; };
@@ -191,8 +188,6 @@
 				266DFBA118002DE700F7F4F6 /* SummonedUnit.h */,
 				266DFB7717F8351900F7F4F6 /* Unit.cpp */,
 				266DFB7617F833DA00F7F4F6 /* Unit.h */,
-				266DFB9C18001E0500F7F4F6 /* UnitTable.cpp */,
-				266DFB9B18001CB400F7F4F6 /* UnitTable.h */,
 				266DFB7A17F8674400F7F4F6 /* UnitType.cpp */,
 				266DFB7917F83C3B00F7F4F6 /* UnitType.h */,
 				2608945517F1DD9500CEA80B /* Wizard.cpp */,
@@ -269,7 +264,6 @@
 				2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */,
 				266DFB8317F8713700F7F4F6 /* Location.cpp in Sources */,
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
-				266DFB9D18001E0500F7F4F6 /* UnitTable.cpp in Sources */,
 				266DFB9417FB1D0A00F7F4F6 /* SpellResearchStatus.cpp in Sources */,
 				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
 				2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */,
