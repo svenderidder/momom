@@ -46,18 +46,19 @@ namespace momom {
         int turn() const;
         int activeUnit() const;
         
+        // Wizards
+        Wizard& wizard(WizardID id);
+        
         // Heroes
         Hero& hero(int wizard_id, int hero_id);
-        
-        // Wizards
-        Wizard wizard(WizardID id);
         
         Unit& unit(int unit_id);
         
     private:
         std::unique_ptr<class SavegameData> data;
-        CachedLookup<int, Unit> units;
+        CachedLookup<WizardID, Wizard> wizards;
         CachedLookup<std::pair<WizardID, UnitType>, Hero> heroes;
+        CachedLookup<int, Unit> units;
         
         friend Savegame load(const char*);
     };

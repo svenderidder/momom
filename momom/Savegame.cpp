@@ -28,10 +28,14 @@ namespace momom {
     Savegame::Savegame(const char* filename, SavegameData* data)
     : data{data}
     , units(data, Unit::create)
-    , heroes(data, Hero::create) {}
+    , heroes(data, Hero::create)
+    , wizards(data, Wizard::create) {}
     
     Savegame::Savegame(Savegame&& moved)
-    : data{std::move(moved.data)}, units(data.get(), Unit::create), heroes(data.get(), Hero::create) {}
+    : data{std::move(moved.data)}
+    , units(data.get(), Unit::create)
+    , heroes(data.get(), Hero::create)
+    , wizards(data.get(), Wizard::create) {}
     
     Savegame::~Savegame() {}
     
@@ -87,12 +91,8 @@ namespace momom {
         return heroes.get(std::make_pair(static_cast<WizardID>(wizard_id), static_cast<UnitType>(hero_id)));
     }
     
-    Wizard Savegame::wizard(WizardID id) {
-        int wizard_id = static_cast<int>(id);
-        if(wizard_id < 0 || wizard_id >= nofWizards()) {
-            throw InvalidWizardIDException(wizard_id);
-        }
-        return std::move(Wizard(data.get(), wizard_id));
+    Wizard& Savegame::wizard(WizardID id) {
+        return wizards.get(id);
     }
     
     Unit& Savegame::unit(int unit_id) {

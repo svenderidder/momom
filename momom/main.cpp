@@ -65,7 +65,7 @@ int main(int argc, const char * argv[])
             << " " << unit.location() << ")\n";
     }
 
-    Wizard me = s.wizard(WizardID::Player);
+    Wizard& me = s.wizard(WizardID::Player);
 //    me.gold(30000);
 //    me.mana(30000);
 //    me.fame(30000);

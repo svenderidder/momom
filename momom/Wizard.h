@@ -24,6 +24,8 @@
 
 namespace momom {
     
+    class SavegameData;
+    
     struct InvalidWizardIDException: virtual std::logic_error {
         InvalidWizardIDException(int id)
         : std::logic_error("Invalid wizard ID")
@@ -40,7 +42,9 @@ namespace momom {
     
     class Wizard {
     public:
-        Wizard(class SavegameData* data, int wizard_id);
+        static Wizard* create(SavegameData* data, WizardID id);
+        
+        Wizard(SavegameData* data, int wizard_id);
         Wizard(Wizard&& moved);
         ~Wizard();
         Wizard& operator=(Wizard&& moved);

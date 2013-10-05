@@ -174,6 +174,9 @@ namespace momom {
         const int wizard_id;
     };
 
+    Wizard* Wizard::create(SavegameData* data, WizardID id) {
+        return new Wizard(data, static_cast<int>(id));
+    }
 
     Wizard::Wizard(SavegameData* data, int wizard_id)
     : wi{new WizardInternals(data, wizard_id)} {}

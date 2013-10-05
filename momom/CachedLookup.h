@@ -21,7 +21,7 @@ namespace momom {
     public:
         typedef K key_type;
         typedef V value_type;
-        // typedef std::function<V*(SavegameData*, K)> factory_type;
+        typedef F factory_type;
         
         CachedLookup(SavegameData* data, F factory)
         : data{data}, factory{factory} {}
