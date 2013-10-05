@@ -27,7 +27,7 @@ namespace momom {
     const Unit& UnitTable::get(int unit_id) const {
         auto it = unit_cache.find(unit_id);
         if(it == unit_cache.end()) {
-            std::shared_ptr<Unit> pu(createUnit(data, unit_id));
+            std::shared_ptr<Unit> pu(Unit::create(data, unit_id));
             auto r = unit_cache.insert(std::make_pair(unit_id, pu));
             assert(r.second); // equivalent key should not already exist.
             it = r.first;

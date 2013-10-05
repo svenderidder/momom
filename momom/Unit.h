@@ -21,6 +21,8 @@ namespace momom {
     
     class Unit {
     public:
+        static Unit* create(SavegameData* data, int unit_id);
+
         Unit(SavegameData* data, int unit_id);
         virtual ~Unit();
         
@@ -42,7 +44,6 @@ namespace momom {
         std::unique_ptr<struct UnitInternals> ui;
     };
     
-    Unit* createUnit(SavegameData* data, int unit_id);
     
 }
 

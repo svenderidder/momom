@@ -111,7 +111,12 @@ namespace momom {
         SavegameData* const data;
         int unit_id;
     };
-    
+
+    Unit* Unit::create(SavegameData* data, int unit_id) {
+        
+        return new RegularUnit(data, unit_id);
+    }
+
     Unit::Unit(SavegameData* data, int unit_id)
     : ui(new UnitInternals(data, unit_id)) {}
     
@@ -151,8 +156,5 @@ namespace momom {
         ui->level(l - 1);
     }
     
-    Unit* createUnit(SavegameData* data, int unit_id) {
-        return new RegularUnit(data, unit_id);
-    }
     
 }
