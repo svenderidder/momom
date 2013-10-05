@@ -7,7 +7,9 @@
 //
 
 #include "Unit.h"
+#include "HeroUnit.h"
 #include "RegularUnit.h"
+#include "SummonedUnit.h"
 #include "SavegameData.h"
 
 namespace momom {
@@ -113,8 +115,18 @@ namespace momom {
     };
 
     Unit* Unit::create(SavegameData* data, int unit_id) {
-        
-        return new RegularUnit(data, unit_id);
+        UnitType type = static_cast<UnitType>(data->get<F_UnitType>(unit_id));
+        if(isHeroUnitType(type)) {
+            return new HeroUnit(data, unit_id);
+        }
+        else if(isRegularUnitType(type)) {
+            return new RegularUnit(data, unit_id);
+        }
+        else if(isSummonedUnitType(type)) {
+            return new SummonedUnit(data, unit_id);
+        }
+        assert(false);
+        return nullptr;
     }
 
     Unit::Unit(SavegameData* data, int unit_id)
