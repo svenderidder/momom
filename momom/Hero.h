@@ -26,9 +26,7 @@ namespace momom {
         static Hero* create(SavegameData* data, std::pair<WizardID, UnitType>);
         
         Hero(SavegameData* data, int wizard_id, int hero_id);
-        Hero(Hero&& moved);
         ~Hero();
-        Hero& operator=(Hero&& moved);
         
         bool hired() const;
         std::pair<bool, int> hire();

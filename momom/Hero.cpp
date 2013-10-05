@@ -129,15 +129,7 @@ namespace momom {
     Hero::Hero(SavegameData* data, int wizard_id, int hero_id)
     : hi{new HeroInternals(data, wizard_id, hero_id)} {}
     
-    Hero::Hero(Hero&& moved)
-    : hi(std::move(moved.hi)) {}
-    
     Hero::~Hero() {}
-    
-    Hero& Hero::operator=(Hero&& moved) {
-        hi = std::move(moved.hi);
-        return *this;
-    }
     
     bool Hero::hired() const {
         return hi->hired();

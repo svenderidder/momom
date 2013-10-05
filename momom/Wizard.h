@@ -45,9 +45,7 @@ namespace momom {
         static Wizard* create(SavegameData* data, WizardID id);
         
         Wizard(SavegameData* data, int wizard_id);
-        Wizard(Wizard&& moved);
         ~Wizard();
-        Wizard& operator=(Wizard&& moved);
         
         WizardID id() const;
         

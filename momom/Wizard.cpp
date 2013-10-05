@@ -181,15 +181,7 @@ namespace momom {
     Wizard::Wizard(SavegameData* data, int wizard_id)
     : wi{new WizardInternals(data, wizard_id)} {}
     
-    Wizard::Wizard(Wizard&& moved)
-    : wi(std::move(moved.wi)) {}
-
     Wizard::~Wizard() {}
-
-    Wizard& Wizard::operator=(Wizard&& moved) {
-        wi = std::move(moved.wi);
-        return *this;
-    }
 
     WizardID Wizard::id() const {
         return static_cast<WizardID>(wi->wizard_id);
