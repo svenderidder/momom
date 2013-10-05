@@ -21,6 +21,7 @@
 #include "LandSize.h"
 #include "MagicLevel.h"
 #include "UnitTable.h"
+#include "HeroTable.h"
 
 namespace momom {
     
@@ -47,7 +48,7 @@ namespace momom {
         int activeUnit() const;
         
         // Heroes
-        Hero hero(int wizard_id, int hero_id);
+        Hero& hero(int wizard_id, int hero_id);
         
         // Wizards
         Wizard wizard(WizardID id);
@@ -57,6 +58,7 @@ namespace momom {
     private:
         std::unique_ptr<class SavegameData> data;
         UnitTable units;
+        HeroTable heroes;
         
         friend Savegame load(const char*);
     };

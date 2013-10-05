@@ -32,7 +32,7 @@ int main(int argc, const char * argv[])
     std::cout << "Active Unit: " << s.activeUnit() << "\n";
     
     for(int i = 0; i < 35; ++i) {
-        Hero h = s.hero(0, i);
+        Hero& h = s.hero(0, i);
         if(!h.hired()) {
             h.level(9);
             h.alive(true);
