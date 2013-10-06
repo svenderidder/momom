@@ -33,6 +33,9 @@
 		266DFB9A17FF21A700F7F4F6 /* RegularUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9917FF21A700F7F4F6 /* RegularUnit.cpp */; };
 		266DFBA018002D3600F7F4F6 /* HeroUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFB9F18002D3600F7F4F6 /* HeroUnit.cpp */; };
 		266DFBA318002E2800F7F4F6 /* SummonedUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266DFBA218002E2800F7F4F6 /* SummonedUnit.cpp */; };
+		2687E7EA1801845700FC5157 /* Settlement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2687E7E91801845700FC5157 /* Settlement.cpp */; };
+		2687E7EC180184B000FC5157 /* Outpost.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2687E7EB180184B000FC5157 /* Outpost.cpp */; };
+		2687E7EE180184DE00FC5157 /* City.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2687E7ED180184DE00FC5157 /* City.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,6 +107,12 @@
 		266DFBA118002DE700F7F4F6 /* SummonedUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummonedUnit.h; sourceTree = "<group>"; };
 		266DFBA218002E2800F7F4F6 /* SummonedUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SummonedUnit.cpp; sourceTree = "<group>"; };
 		266DFBA7180041B900F7F4F6 /* CachedLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedLookup.h; sourceTree = "<group>"; };
+		2687E7E6180172B100FC5157 /* Settlement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settlement.h; sourceTree = "<group>"; };
+		2687E7E7180183C700FC5157 /* Outpost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Outpost.h; sourceTree = "<group>"; };
+		2687E7E81801842A00FC5157 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		2687E7E91801845700FC5157 /* Settlement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Settlement.cpp; sourceTree = "<group>"; };
+		2687E7EB180184B000FC5157 /* Outpost.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Outpost.cpp; sourceTree = "<group>"; };
+		2687E7ED180184DE00FC5157 /* City.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = City.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +148,9 @@
 			children = (
 				2608945B17F1E97B00CEA80B /* Banner.cpp */,
 				2608945A17F1E91000CEA80B /* Banner.h */,
+				266DFBA7180041B900F7F4F6 /* CachedLookup.h */,
+				2687E7ED180184DE00FC5157 /* City.cpp */,
+				2687E7E81801842A00FC5157 /* City.h */,
 				2608944D17F1C9FC00CEA80B /* GameDifficulty.cpp */,
 				2608944617F18F5800CEA80B /* GameDifficulty.h */,
 				266DFB8E17F9CCA900F7F4F6 /* GlobalEnchantment.cpp */,
@@ -161,6 +173,8 @@
 				2608943217F092E200CEA80B /* momom.1 */,
 				2608946117F1F27C00CEA80B /* Objective.cpp */,
 				2608946017F1F21800CEA80B /* Objective.h */,
+				2687E7EB180184B000FC5157 /* Outpost.cpp */,
+				2687E7E7180183C700FC5157 /* Outpost.h */,
 				2608945E17F1EE7400CEA80B /* Personality.cpp */,
 				2608945D17F1EE1200CEA80B /* Personality.h */,
 				266DFB7E17F86E7200F7F4F6 /* Plane.cpp */,
@@ -175,6 +189,8 @@
 				2608944017F17E1100CEA80B /* Savegame.h */,
 				2608944717F1A29B00CEA80B /* SavegameData.h */,
 				2608944317F1813700CEA80B /* SavegameRegion.h */,
+				2687E7E91801845700FC5157 /* Settlement.cpp */,
+				2687E7E6180172B100FC5157 /* Settlement.h */,
 				266DFB9017FB187500F7F4F6 /* Spell.cpp */,
 				2608943F17F1021A00CEA80B /* Spell.h */,
 				266DFB9317FB1D0A00F7F4F6 /* SpellResearchStatus.cpp */,
@@ -189,7 +205,6 @@
 				2608945417F1DD1700CEA80B /* Wizard.h */,
 				266DFB8517F97BBC00F7F4F6 /* WizardID.cpp */,
 				266DFB8417F97B3500F7F4F6 /* WizardID.h */,
-				266DFBA7180041B900F7F4F6 /* CachedLookup.h */,
 			);
 			path = momom;
 			sourceTree = "<group>";
@@ -257,12 +272,15 @@
 				2608945917F1E66000CEA80B /* Race.cpp in Sources */,
 				2608946217F1F27C00CEA80B /* Objective.cpp in Sources */,
 				2608945217F1CE6F00CEA80B /* LandSize.cpp in Sources */,
+				2687E7EA1801845700FC5157 /* Settlement.cpp in Sources */,
 				266DFB8317F8713700F7F4F6 /* Location.cpp in Sources */,
+				2687E7EE180184DE00FC5157 /* City.cpp in Sources */,
 				2608943117F092E200CEA80B /* main.cpp in Sources */,
 				266DFB9417FB1D0A00F7F4F6 /* SpellResearchStatus.cpp in Sources */,
 				2608945017F1CDD500CEA80B /* MagicLevel.cpp in Sources */,
 				2608945F17F1EE7400CEA80B /* Personality.cpp in Sources */,
 				266DFB8F17F9CCA900F7F4F6 /* GlobalEnchantment.cpp in Sources */,
+				2687E7EC180184B000FC5157 /* Outpost.cpp in Sources */,
 				2608945617F1DD9500CEA80B /* Wizard.cpp in Sources */,
 				2608945C17F1E97B00CEA80B /* Banner.cpp in Sources */,
 				266DFB9717FEEA8300F7F4F6 /* HeroAbility.cpp in Sources */,

@@ -21,6 +21,7 @@
 #include "LandSize.h"
 #include "MagicLevel.h"
 #include "CachedLookup.h"
+#include "Settlement.h"
 
 namespace momom {
     
@@ -52,13 +53,18 @@ namespace momom {
         // Heroes
         Hero& hero(int wizard_id, int hero_id);
         
+        // Units
         Unit& unit(int unit_id);
+        
+        // Settlements
+        Settlement& settlement(int settlement_id);
         
     private:
         std::unique_ptr<class SavegameData> data;
         CachedLookup<WizardID, Wizard> wizards;
         CachedLookup<std::pair<WizardID, UnitType>, Hero> heroes;
         CachedLookup<int, Unit> units;
+        CachedLookup<int, Settlement> settlements;
         
         friend Savegame load(const char*);
     };

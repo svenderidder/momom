@@ -85,4 +85,9 @@ int main(int argc, const char * argv[])
 //                 std::ostream_iterator<Retort>(std::cout, "\n"),
 //                 [&me](Retort r) { return me.retort(r); });
     
+    for(int c = 0; c < s.nofCities(); ++c) {
+        Settlement& settlement = s.settlement(c);
+        std::cout << settlement.name() << std::endl;
+    }
+    
 }

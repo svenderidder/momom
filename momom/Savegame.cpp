@@ -29,13 +29,15 @@ namespace momom {
     : data{data}
     , units(data, Unit::create)
     , heroes(data, Hero::create)
-    , wizards(data, Wizard::create) {}
+    , wizards(data, Wizard::create)
+    , settlements(data, Settlement::create) {}
     
     Savegame::Savegame(Savegame&& moved)
     : data{std::move(moved.data)}
     , units(data.get(), Unit::create)
     , heroes(data.get(), Hero::create)
-    , wizards(data.get(), Wizard::create) {}
+    , wizards(data.get(), Wizard::create)
+    , settlements(data.get(), Settlement::create) {}
     
     Savegame::~Savegame() {}
     
@@ -97,6 +99,10 @@ namespace momom {
     
     Unit& Savegame::unit(int unit_id) {
         return units.get(unit_id);
+    }
+    
+    Settlement& Savegame::settlement(int settlement_id) {
+        return settlements.get(settlement_id);
     }
     
 
