@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
+#include <fstream>
 #include <map>
-#include <boost/interprocess/file_mapping.hpp>
-#include <boost/interprocess/mapped_region.hpp>
 #include <stdexcept>
 #include "Savegame.h"
 #include "SavegameData.h"
 #include "RegularUnit.h"
+
+#include <iostream>
 
 namespace momom {
     
@@ -21,7 +22,27 @@ namespace momom {
     };
     
     Savegame load(const char* filename) {
-        auto* data = new SavegameData(filename);
+        std::ifstream is(filename, std::ifstream::binary);
+        if(!is) {
+            throw std::runtime_error("Could not open file");
+        }
+        
+        is.seekg(0, is.end);
+        size_t length = is.tellg();
+        is.seekg(0, is.beg);
+        
+        char* buffer = new char[length];
+        std::cout << "Reading " << length << " bytes.\n";
+        
+        is.read(buffer, length);
+        
+        if(is) {
+            std::cout << "Success!\n";
+        }
+        
+        auto* data = new SavegameData(buffer, length);
+        is.close();
+        
         return Savegame(filename, data);
     }
     

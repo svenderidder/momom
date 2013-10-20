@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <cstring>
+#include <cassert>
 
 #include "Wizard.h"
 #include "SavegameData.h"

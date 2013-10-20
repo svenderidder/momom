@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
+#include <cassert>
 #include "Unit.h"
 #include "HeroUnit.h"
 #include "RegularUnit.h"

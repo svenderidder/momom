@@ -7,6 +7,7 @@
 //
 
 #include <cmath>
+#include <cassert>
 
 #include "Hero.h"
 #include "SavegameData.h"

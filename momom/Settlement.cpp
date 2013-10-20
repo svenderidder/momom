@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 svenr. All rights reserved.
 //
 
+#include <cassert>
 #include "Settlement.h"
 #include "SavegameData.h"
 #include "City.h"

@@ -9,8 +9,9 @@
 #ifndef momom_SavegameData_h
 #define momom_SavegameData_h
 
-#include <boost/interprocess/file_mapping.hpp>
-#include <boost/interprocess/mapped_region.hpp>
+#include <memory>
+
+#include <iostream>
 
 namespace momom {
 
@@ -38,33 +39,32 @@ namespace momom {
 
     class SavegameData {
     public:
-        SavegameData(const char* filename)
-        : mapping(filename, boost::interprocess::read_write)
-        , data(mapping, mapping.get_mode()) {}
+        SavegameData(char* raw, size_t sz): base{raw}, size{sz} {}
+        ~SavegameData() {}
+        
+        SavegameData(SavegameData&& moved): base{std::move(moved.base)}, size{moved.size} {
+            moved.base = nullptr;
+        }
         
         template<typename F> const typename F::value_type& get() const {
-            return *reinterpret_cast<const typename F::value_type*>(
-                static_cast<char*>(data.get_address())
-                    + F::region::offset + F::offset);
+            return *reinterpret_cast<const typename F::value_type*>(&base[F::region::offset + F::offset]);
         }
         
         template<typename F> const typename F::value_type& get(int index) const {
             using R = typename F::region;
             return *reinterpret_cast<const typename F::value_type*>(
-                static_cast<char*>(data.get_address())
-                    + R::offset + index * R::size + F::offset);
+                &base[R::offset + index * R::size + F::offset]);
         }
         
         template<typename F> typename F::value_type& get(int index) {
             using R = typename F::region;
             return *reinterpret_cast<typename F::value_type*>(
-                static_cast<char*>(data.get_address())
-                    + R::offset + index * R::size + F::offset);
+                &base[R::offset + index * R::size + F::offset]);
         }
         
     private:
-        boost::interprocess::file_mapping mapping;
-        boost::interprocess::mapped_region data;
+        std::unique_ptr<char[]> base;
+        size_t size;
     };
     
 }
